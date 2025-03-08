@@ -1,8 +1,9 @@
 import React from 'react';
+import logo from "../img/human--black.png";
 
 const Header = () => {
     return <header className='header'>
-        <img src='https://www.freelogodesign.org/Content/img/logo-ex-7.png' />
+        <img src={logo} alt="logo" />
     </header>
 }
 
