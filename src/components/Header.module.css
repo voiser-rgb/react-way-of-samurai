@@ -1,0 +1,7 @@
+.header {
+    grid-area: h;
+    background: radial-gradient(circle, #000080, #000000);
+  }
+  .header img {
+    width: 10rem;
+  }
