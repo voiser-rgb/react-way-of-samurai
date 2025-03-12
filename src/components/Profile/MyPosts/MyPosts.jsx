@@ -16,7 +16,7 @@ const MyPosts = () => {
       </div>
       <div className={styles.posts}>
       <Post likes="5" name="LousyChicken" message="Hi" />
-      <Post likes ="10" name="LousyChicken" message="It's my first post"/>
+      <Post likes="10" name="LousyChicken" message="It's my first post"/>
       <Post likes="23" name="LousyChicken" message="How are you dude?"/>
       </div>
     </div>
