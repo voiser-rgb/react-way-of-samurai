@@ -1,0 +1,20 @@
+.music {
+    width: 80%;
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.music__item {
+    width: 100%;
+}
+
+
+
+.title {
+    font-family: Arial, sans-serif; /* Семейство шрифтов */
+    font-size: 2rem; /* Размер шрифта */
+    font-weight: bold; /* Жирность шрифта */
+    color: #333; /* Цвет текста */
+}

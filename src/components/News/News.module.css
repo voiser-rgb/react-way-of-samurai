@@ -1,0 +1,26 @@
+.news {
+    width: 80%;
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+.title {
+    font-family: Arial, sans-serif; /* Семейство шрифтов */
+    font-size: 2rem; /* Размер шрифта */
+    font-weight: bold; /* Жирность шрифта */
+    color: #333; /* Цвет текста */
+    margin-bottom: 1rem; /* Отступ снизу */
+}
+
+.subtitle {
+    font-family: Arial, sans-serif;
+    font-size: 1.25rem; /* Базовый размер шрифта */
+    font-weight: 400; /* Нормальная жирность */
+    color: #666; /* Цвет текста немного светлее, чем у основного заголовка */
+    margin-bottom: 1rem;
+    text-align: center;
+    line-height: 1.5; /* Межстрочный интервал */
+}

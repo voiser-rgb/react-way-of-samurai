@@ -1,0 +1,38 @@
+.settings {
+    display: grid;
+    grid-template-areas: "t t" "p p" "s s" "n n";
+    justify-content: center;
+    gap: 10px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+
+
+
+.title {
+    margin: 0;
+    font-family: Arial, sans-serif; /* Семейство шрифтов */
+    font-size: 2rem; /* Размер шрифта */
+    font-weight: bold; /* Жирность шрифта */
+    color: #333; /* Цвет текста */
+}
+
+
+.title {
+    grid-area: t;
+}
+
+
+#profile {
+    grid-area: p;
+}
+
+
+#security {
+    grid-area: s;
+}
+
+#notifications {
+    grid-area: n;
+}
