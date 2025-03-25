@@ -1,17 +1,19 @@
 import React from 'react';
 import styles from "./Profile.module.css";
 import MyPosts from "./MyPosts/MyPosts.jsx";
+import img from "../../img/TheCarinaNebula.jpg";
 
 const Profile = () => {
-    return <div className={styles.content}>
-    <div>
-      <img src='https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg?auto=compress&cs=tinysrgb&h=350' />
-    </div>
-    <div>
-      ava + description
-    </div>
-    <MyPosts />
-  </div>
+	return <div className={styles.content}>
+		<div>
+			<img className={styles.image} src={img} alt="NGC3372" />
+			<figcaption>The Carina Nebula, ESO 128-EN13.It is located at a distance of 6500 to 10,000 light-years from Earth.</figcaption>
+		</div>
+		<div>
+			ava + description
+		</div>
+		<MyPosts/>
+	</div>
 }
 
 export default Profile;

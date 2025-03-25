@@ -8,14 +8,10 @@
 }
 
 
-
-
 .title {
     margin: 0;
-    font-family: Arial, sans-serif; /* Семейство шрифтов */
-    font-size: 2rem; /* Размер шрифта */
-    font-weight: bold; /* Жирность шрифта */
-    color: #333; /* Цвет текста */
+    font-size: 3rem; /* Размер шрифта */
+    color: #040467;
 }
 
 
