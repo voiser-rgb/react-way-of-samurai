@@ -7,7 +7,7 @@
 
 .item a {
     color: white;
-    text-decoration: none; /* Убрать подчеркивание */
+    text-transform: uppercase;
     display: block;
     padding: 1rem;
 

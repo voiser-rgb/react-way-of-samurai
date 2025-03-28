@@ -7,23 +7,23 @@ const setActive = ({isActive}) => isActive ? styles.active : "";
 const Navbar = () => {
 	return <nav className={styles.nav}>
 		<div className={`${styles.item} ${styles.active}`}>
-			<NavLink className={setActive} to="/Profile">Profile</NavLink>
+			<NavLink className={setActive} to="/profile">Profile</NavLink>
 		</div>
 
 		<div className={styles.item}>
-			<NavLink className={setActive} to="/Dialogs">Messages</NavLink>
+			<NavLink className={setActive} to="/dialogs">Messages</NavLink>
 		</div>
 
 		<div className={styles.item}>
-			<NavLink className={setActive} to="/News">News</NavLink>
+			<NavLink className={setActive} to="/news">News</NavLink>
 		</div>
 
 		<div className={styles.item}>
-			<NavLink className={setActive} to="/Music">Music</NavLink>
+			<NavLink className={setActive} to="/music">Music</NavLink>
 		</div>
 
 		<div className={styles.item}>
-			<NavLink className={setActive} to="/Settings">Settings</NavLink>
+			<NavLink className={setActive} to="/settings">Settings</NavLink>
 		</div>
 	</nav>
 }

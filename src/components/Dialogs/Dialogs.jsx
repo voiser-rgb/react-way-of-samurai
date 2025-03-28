@@ -1,23 +1,56 @@
 import React from 'react';
 import styles from './Dialogs.module.css';
+import {NavLink, useParams} from "react-router-dom";
 
-//! Test setActive
 const setActive = ({isActive}) => isActive ? styles.active : "";
 
 const Dialogs = (props) => {
+	// Не забудь что есть useParams()
+	// const { id } = useParams();
 	return (<div>
 		<h2 className={styles.title}>Dialogs:</h2>
 		<div className={styles.dialogs}>
 			<ul className={styles.list}>
-				 {/*Test setActive */}
-				<li id="1" className={`${styles.item} ${setActive}`}>Andrey</li>
-				<li id="2" className={styles.item}>Vika</li>
-				<li id="3" className={styles.item}>Pavel</li>
-				<li id="4" className={styles.item}>Elena</li>
-				<li id="5" className={styles.item}>Alexandr</li>
-				<li id="6" className={styles.item}>Sonya</li>
-				<li id="7" className={styles.item}>Ponchito</li>
-				<li id="8" className={styles.item}>Sergei</li>
+				<li  id="1" className={styles.item}>
+					<NavLink to="/dialogs/1" className={setActive}>
+						<span className={styles.text}>Andrey</span>
+					</NavLink>
+				</li>
+				<li id="2" className={styles.item}>
+					<NavLink to="/dialogs/2" className={setActive}>
+						<span className={styles.text}>Vika</span>
+					</NavLink>
+				</li>
+				<li id="3" className={styles.item}>
+					<NavLink to="/dialogs/3" className={setActive}>
+						<span className={styles.text}>Pavel</span>
+					</NavLink>
+				</li>
+				<li id="4" className={styles.item}>
+					<NavLink to="/dialogs/4" className={setActive}>
+						<span className={styles.text}>Turk</span>
+					</NavLink>
+				</li>
+				<li id="5" className={styles.item}>
+					<NavLink to="/dialogs/5" className={setActive}>
+						<span className={styles.text}>Alex</span>
+					</NavLink>
+				</li>
+				<li id="6" className={styles.item}>
+					<NavLink to="/dialogs/6" className={setActive}>
+						<span className={styles.text}>Sonya</span>
+					</NavLink>
+				</li>
+				<li id="7" className={styles.item}>
+					<NavLink to="/dialogs/7" className={setActive}>
+						<span className={styles.text}>Ponchito</span>
+					</NavLink>
+				</li>
+				<li id="8" className={styles.item}>
+					<NavLink to="/dialogs/8" className={setActive}>
+						<span className={styles.text}>FatChicken</span>
+					</NavLink>
+				</li>
 			</ul>
 
 			<div className={styles.messages}>
