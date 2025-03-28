@@ -3,7 +3,7 @@ import styles from "./Settings.module.css";
 
 const Settings = () => {
 	return (<div className={styles.settings}>
-		<h2 className={styles.title}>Settings</h2>
+		<h2 className={styles.title}>Settings:</h2>
 		<section id={styles.profile}>
 			<form>
 				<h3>Profile Settings</h3>

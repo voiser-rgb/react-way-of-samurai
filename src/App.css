@@ -46,6 +46,8 @@ html, body {
 }
 
 h2 {
+    color: #040467;
+    font-size: 3rem;
     font-family: 'Righteous-Regular', cursive;
     font-weight: 800;
 }

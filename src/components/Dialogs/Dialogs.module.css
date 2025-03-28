@@ -1,5 +1,45 @@
-.text {
-    /*color: #4682B4;*/
-    color: white;
-    font-size: 28px;
+.dialogs {
+    display: flex;
+    /*justify-content: space-around;*/
+}
+
+
+.title {
+    width: 90%;
+    margin: 2rem auto 0.5rem;
+    padding: 0 0 1rem 0.5rem;
+    border-bottom: 0.1rem solid rgb(16, 18, 26);
+}
+
+.list {
+    border-right: 0.1rem solid rgb(16, 18, 26);
+}
+
+.list .item {
+    padding: 2rem;
+}
+
+.item .active {
+    color: rgb(198, 154, 14);
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px; /* Скругление углов */
+    box-shadow: 5px 10px 20px rgb(16, 18, 26);
+    transform: translateX(1px) translateY(2px);
+}
+
+
+
+.messages {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 2rem 0 0 3rem;
+}
+
+.messages .message {
+    margin: 0;
+}
+
+.message:not(:last-child) {
+    margin-bottom: 1rem;
 }

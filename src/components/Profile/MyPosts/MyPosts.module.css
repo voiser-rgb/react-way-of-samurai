@@ -1,9 +1,26 @@
-/* 
-.item {
-  color: blueviolet;
+.formChat {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
 }
- */
 
- .posts {
-  outline: 2px solid black;
- }
+
+
+.formChat label {
+ display: block;
+ margin-bottom: 0.5rem;
+}
+
+
+.formChat textarea {
+ margin-bottom: 0.5rem;
+ padding: 0.5rem;
+ border: 1px solid black;
+ border-radius: 4px;
+ resize: vertical;
+}
+
+
+.formChat button:not(:last-child) {
+ margin-right: 0.2rem;
+}

@@ -6,14 +6,17 @@ const MyPosts = () => {
     return (
       <div>
       My posts
-      <form>
-        <textarea></textarea>
-        <button>submit</button>
-        <button>remove</button>
+      <form className={styles.formChat}>
+        <label htmlFor="chat-message">Enter a message:</label>
+        <textarea id="chat-message" name="message" cols="30" rows="5" placeholder="Write your message..."></textarea>
+        <div className={styles.wrapper}>
+          <button>submit</button>
+          <button>remove</button>
+        </div>
       </form>
-      <div>
-        New post
-      </div>
+        <div>
+          New post
+        </div>
       <div className={styles.posts}>
       <Post likes="5" name="LousyChicken" message="Hi" />
       <Post likes="10" name="LousyChicken" message="It's my first post"/>
