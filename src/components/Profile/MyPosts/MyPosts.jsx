@@ -4,8 +4,8 @@ import Post from './Post/Post.jsx';
 
 const MyPosts = () => {
     return (
-      <div>
-      My posts
+      <div className={styles.wrapperPosts}>
+      <h3>My posts</h3>
       <form className={styles.formChat}>
         <label htmlFor="chat-message">Enter a message:</label>
         <textarea id="chat-message" name="message" cols="30" rows="5" placeholder="Write your message..."></textarea>

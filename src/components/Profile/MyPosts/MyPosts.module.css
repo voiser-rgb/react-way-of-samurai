@@ -1,7 +1,13 @@
+.wrapperPosts {
+ padding: 0.6rem;
+}
+
+
 .formChat {
  display: flex;
  flex-direction: column;
- align-items: center;
+ /*align-items: center;*/
+ margin-bottom: 1rem;
 }
 
 

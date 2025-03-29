@@ -20,7 +20,7 @@
 }
 
 .list .item {
-    padding: 2rem;
+    padding: 1rem 0.5rem;
 
 }
 
@@ -28,6 +28,8 @@
 .item .text  {
     display: block;
     transition: transform 0.3s ease;
+    transform-origin: left center; /* Устанавливаем точку трансформации на левый край */
+    transform: scale(1);
     text-shadow:
             0 2px 4px rgba(0, 0, 0, 0.1),
             0 8px 16px rgba(0, 0, 0, 0.1);
