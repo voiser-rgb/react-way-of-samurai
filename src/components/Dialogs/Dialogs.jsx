@@ -25,30 +25,42 @@ const Message = (props) => {
 const Dialogs = (props) => {
 	//! Не забудь что есть useParams()
 	// const { id } = useParams();
+
+	const dialogsData = [
+		{id: 1, name: "Andrey"},
+		{id: 2, name: "Vika"},
+		{id: 3, name: "Pavel"},
+		{id: 4, name: "Elena"},
+		{id: 5, name: "FatBot"},
+		{id: 6, name: "LittleHorse"},
+		{id: 7, name: "Kuzma"},
+		{id: 8, name: "Mikasa"},
+	]
+	const messagesData = [
+		{id: 1, message: "Hello my friends"},
+		{id: 2, message: "Yo"},
+		{id: 3, message: "Hi"},
+		{id: 4, message: "Hello, how are you?"},
+		{id: 5, message: "Ooo, haven't seen you a long time!"},
+		{id: 6, message: "Who are you, dude?"},
+		{id: 7, message: "Ahahaha, an interesting situation"},
+		{id: 8, message: "Well, we're glad you're back"},
+	]
+
 	return (<div>
 		<h2 className={styles.title}>Dialogs:</h2>
 		<div className={styles.dialogs}>
 
 			<ul className={styles.list}>
-				<Dialog name="Andrey" id="1"/>
-				<Dialog name="Vika" id="2"/>
-				<Dialog name="Pavel" id="3"/>
-				<Dialog name="Elena" id="4"/>
-				<Dialog name="FatBot" id="5"/>
-				<Dialog name="LittleHorse" id="6"/>
-				<Dialog name="Kuzya" id="7"/>
-				<Dialog name="Mikasa" id="8"/>
+				{dialogsData.map((item) => (
+					<Dialog id={item.id} name={item.name} />
+				))}
 			</ul>
 
 			<div className={styles.messages}>
-				<Message message="Hello my friends" id="1" />
-				<Message message="Yo" id="2" />
-				<Message message="Hi" id="3" />
-				<Message message="Hello, how are you?" id="4" />
-				<Message message="Ooo, haven't seen you a long time!" id="5" />
-				<Message message="Who are you, dude?" id="6" />
-				<Message message="Ahahaha, an interesting situation" id="7" />
-				<Message message="Well, we're glad you're back" id="8" />
+				{messagesData.map((item) => (
+					<Message id={item.id} message={item.message} />
+				))}
 			</div>
 		</div>
 	</div>);
