@@ -53,13 +53,13 @@ const Dialogs = (props) => {
 
 			<ul className={styles.list}>
 				{dialogsData.map((item) => (
-					<Dialog id={item.id} name={item.name} />
+					<Dialog key={item.id} id={item.id} name={item.name} />
 				))}
 			</ul>
 
 			<div className={styles.messages}>
 				{messagesData.map((item) => (
-					<Message id={item.id} message={item.message} />
+					<Message key={item.id} id={item.id} message={item.message} />
 				))}
 			</div>
 		</div>

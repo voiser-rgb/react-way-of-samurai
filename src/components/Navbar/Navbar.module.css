@@ -1,12 +1,20 @@
 .nav {
     grid-area: n;
-    background: linear-gradient(to bottom, #000080, #4682B4);
-    color: white;
-    padding-right: 0.5rem !important;
+    /*background: linear-gradient(to bottom, #000080, #4682B4);*/
+    /*color: white;*/
+    background-color: #2F343A;
+    padding: 0 0.4rem 0 0;
+    border-right: 2px solid #4682B4;
+    border-radius: 0.7rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    /*padding-right: 0.5rem !important;*/
 }
 
 .item a {
-    color: white;
+    /*color: white;*/
+
+    color: #66CCFF;
+    text-shadow: 0 8px 10px black; /* Тень текста */
     text-transform: uppercase;
     display: block;
     padding: 1rem;
@@ -30,8 +38,8 @@
 }
 
 .item a.active {
-    /*color: rgb(155, 246, 19);*/
-    color: rgb(198, 154, 14);
+    color: rgb(244, 248, 248);
+    /*color: rgb(198, 154, 14);*/
     background-color: rgba(255, 255, 255, 0.1);
     border-radius: 5px; /* Скругление углов */
     box-shadow: 5px 10px 20px rgb(16, 18, 26);

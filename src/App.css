@@ -32,24 +32,30 @@ html, body {
     /*font-family: "PressStart2P-Regular", system-ui;*/
     /*font-weight: 200;*/
     /*font-style: normal;*/
-
     /*font-family: "Righteous-Regular", sans-serif;*/
     /*font-weight: 400;*/
     /*font-style: normal;*/
-
     font-family: "Exo-Italic-VariableFont_wght", sans-serif;
     font-weight: 600;
-
+    color: #99a2ab;
     background-image: url('img/galaxy.jpg');
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 h2 {
-    color: #040467;
+    /*color: #040467;*/
+    /*color: rgba(255, 255, 255, .75);*/
+    /*color: #feda4a;*/
+    color: #66CCFF; /* Голубовато-синий цвет */
+    text-shadow: 0 8px 10px black; /* Тень текста */
     font-size: 3rem;
     font-family: 'Righteous-Regular', cursive;
     font-weight: 800;
+}
+
+h3 {
+    color: rgba(5, 224, 217, 0.76);
 }
 
 a {
@@ -74,5 +80,11 @@ a {
 
 .app-wrapper-content {
     grid-area: c;
-    background-color: #3498db;
+    /*background-color: #3498db;*/
+    background: linear-gradient(45deg, #183462, transparent);
+    border-bottom: 2px solid #4682B4;
+    border-radius: 0.7rem;
+    /*!*background: linear-gradient(45deg, #1C1F26, #8E44AD, transparent);*! фиолетовый*/
+    /*background: linear-gradient(45deg, #2D383A, #8A8A8A, transparent); серый*/
+    /*background: linear-gradient(to right, #212529, #1C1F26);*/
 }

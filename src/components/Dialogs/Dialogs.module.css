@@ -8,26 +8,29 @@
 
 
 .title {
-    width: 95%;
+    width: 100%;
     margin: 2rem auto 0;
     padding: 0 0 1rem 0.5rem;
-    border-bottom: 0.1rem solid rgb(16, 18, 26);
+    /*border-bottom: 0.1rem solid rgb(16, 18, 26);*/
+    /*border-bottom: 1px solid #4682B4;*/
+    /*border-radius: 0.7rem;*/
 }
 
 .list {
     grid-area: n;
-    border-right: 0.1rem solid rgb(16, 18, 26);
+    /*border-right: 0.1rem solid rgb(16, 18, 26);*/
 }
 
 .list .item {
     padding: 1rem 0.5rem;
-
+    color: #4682B4;
 }
 
 
 .item .text  {
     display: block;
     transition: transform 0.3s ease;
+    color: #4682B4;
     transform-origin: left center; /* Устанавливаем точку трансформации на левый край */
     transform: scale(1);
     text-shadow:
@@ -48,14 +51,21 @@
 
 
 .messages {
+    display: inline-flex;
+    flex-direction: column;
     grid-area: m;
-    /*display: flex;*/
-    /*flex-direction: column;*/
-    /*width: 100%;*/
-    padding: 2rem 0 0 3rem;
+    padding: 2rem;
+    /*background-color: #343033;*/
+    border-left: 2px solid #4682B4;
+    background: linear-gradient(45deg, #2F343A, transparent);
+    border-radius: 0.7rem;
 }
 
 .messages .message {
+    padding: 1rem;
+    width: fit-content;
+    border-radius: 0.5rem;
+    background-color: #0a524d8f;
     margin: 0;
 }
 

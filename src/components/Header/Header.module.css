@@ -1,6 +1,12 @@
 .header {
     grid-area: h;
-    background: radial-gradient(circle, #000080, #000000);
+    /*background: radial-gradient(circle, #000080, #000000);*/
+    background: linear-gradient(45deg, black, transparent);
+    /*border-top: 2px solid darkgoldenrod;*/
+    /*border-bottom: 2px solid darkgoldenrod; */
+    border-top:  2px solid #4682B4;
+    border-bottom:  2px solid #4682B4;
+    border-radius: 1.5rem;
   }
   .header img {
     width: 10rem;

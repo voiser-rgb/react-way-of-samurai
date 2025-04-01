@@ -1,6 +1,17 @@
 
 .item {
-  color: blueviolet;
+  display: inline-flex;
+  /*color: blueviolet;*/
+  padding: 1rem;
+  border-right: 2px solid ;
+  border-left: 2px solid ;
+
+  /*border: 2px solid;*/
+  border-radius: 0.7rem;
+}
+
+.item:not(:last-child) {
+  margin-bottom: 1rem;
 }
 
 .item img {
@@ -9,3 +20,6 @@
   border-radius: 25px;
 }
 
+.message {
+  padding-left: 1rem;
+}

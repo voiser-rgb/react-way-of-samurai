@@ -21,12 +21,12 @@ const MyPosts = () => {
 				<button>remove</button>
 			</div>
 		</form>
-		<div>
+		<h3>
 			New post
-		</div>
+		</h3>
 		<div className={styles.posts}>
           {postData.map((item) => (
-              <Post id={item.id} message={item.message} likes={item.likes} />
+              <Post key={item.id} message={item.message} likes={item.likes} />
           ))}
 		</div>
 	</div>)
