@@ -3,11 +3,12 @@ import styles from "./MyPosts.module.css";
 import Post from './Post/Post.jsx';
 
 
-const postData = [
-  {id: 1, message: "Hi", likes: 10},
-  {id: 2, message: "It's my first post", likes: 15},
-  {id: 3, message: "How are you dude?", likes: 20},
+const posts = [
+	{id: 1, message: "Hi", likes: 10},
+	{id: 2, message: "It's my first post", likes: 15},
+	{id: 3, message: "How are you dude?", likes: 20},
 ]
+const postsElem = posts.map( post => <Post key={post.id} message={post.message} likes={post.likes}/>)
 
 const MyPosts = () => {
 	return (<div className={styles.wrapperPosts}>
@@ -25,9 +26,7 @@ const MyPosts = () => {
 			New post
 		</h3>
 		<div className={styles.posts}>
-          {postData.map((item) => (
-              <Post key={item.id} message={item.message} likes={item.likes} />
-          ))}
+			{postsElem}
 		</div>
 	</div>)
 
