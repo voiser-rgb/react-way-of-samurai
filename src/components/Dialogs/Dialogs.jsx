@@ -1,24 +1,9 @@
 import React from 'react';
 import styles from './Dialogs.module.css';
-import {NavLink} from "react-router-dom";
+import DialogItem from './DialogItem/DialogItem.jsx';
+import Message from './Message/Message.jsx';
 
-const setActive = ({isActive}) => isActive ? styles.active : "";
 
-const Dialog = (props) => {
-	const id = props.id;
-	const name = props.name;
-	return (<li id={id} className={styles.item}>
-		<NavLink to={`/dialogs/${id}`} className={setActive}>
-			<span className={styles.text}>{name}</span>
-		</NavLink>
-	</li>);
-}
-
-const Message = (props) => {
-	const id = props.id;
-	const text = props.message;
-	return (<p id={id} className={styles.message}>{text}</p>)
-}
 
 const Dialogs = (props) => {
 	const dialogs = [
@@ -42,7 +27,7 @@ const Dialogs = (props) => {
 		{id: 8, text: "Well, we're glad you're back"},
 	]
 
-	const dialogsElem = dialogs.map( dialog => <Dialog key={dialog.id} id={dialog.id} name={dialog.name}/>)
+	const dialogsElem = dialogs.map( dialog => <DialogItem key={dialog.id} id={dialog.id} name={dialog.name}/>)
 	const messagesElem = messages.map( message => <Message key={message.id} id={message.id} message={message.text}/>)
 
 	return (<div>

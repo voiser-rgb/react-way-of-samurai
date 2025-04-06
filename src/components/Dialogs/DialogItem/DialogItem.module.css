@@ -1,0 +1,27 @@
+.item {
+    padding: 1rem 0.5rem;
+    color: #4682B4;
+}
+
+
+.item .text  {
+    display: block;
+    transition: transform 0.3s ease;
+    color: #4682B4;
+    transform-origin: left center; /* Устанавливаем точку трансформации на левый край */
+    transform: scale(1);
+    text-shadow:
+            0 2px 4px rgba(0, 0, 0, 0.1),
+            0 8px 16px rgba(0, 0, 0, 0.1);
+
+}
+
+.item a.active .text {
+    transform: scale(1.5);
+    color: rgb(198, 154, 14);
+    text-shadow:
+            0 2px 4px rgba(0, 0, 0, 0.2),
+            0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+

@@ -44,11 +44,11 @@ html, body {
 }
 
 h2 {
-    /*color: #040467;*/
-    /*color: rgba(255, 255, 255, .75);*/
-    /*color: #feda4a;*/
-    color: #66CCFF; /* Голубовато-синий цвет */
-    text-shadow: 0 8px 10px black; /* Тень текста */
+
+    text-align: center;
+    color: rgba(254, 218, 74, 0.87);
+    /*color: #66CCFF; !* Голубовато-синий цвет *!*/
+    text-shadow: 3px 3px 3px black; /* Тень текста */
     font-size: 3rem;
     font-family: 'Righteous-Regular', cursive;
     font-weight: 800;
