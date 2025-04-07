@@ -5,17 +5,10 @@ import ProfileInfo from "./ProfileInfo/ProfileInfo.jsx";
 
 
 
-const Profile = () => {
-
-	const posts = [
-		{id: 1, message: "Hi", likes: 10},
-		{id: 2, message: "It's my first post", likes: 15},
-		{id: 3, message: "How are you dude?", likes: 20},
-	]
-
+const Profile = ({dataPosts}) => {
 	return <div className={styles.content}>
 		<ProfileInfo />
-		<MyPosts posts={posts} />
+		<MyPosts dataPosts={dataPosts} />
 	</div>
 }
 

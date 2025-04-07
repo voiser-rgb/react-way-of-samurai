@@ -5,30 +5,9 @@ import Message from './Message/Message.jsx';
 
 
 
-const Dialogs = (props) => {
-	const dialogs = [
-		{id: 1, name: "Andrey"},
-		{id: 2, name: "Vika"},
-		{id: 3, name: "Pavel"},
-		{id: 4, name: "Elena"},
-		{id: 5, name: "FatBot"},
-		{id: 6, name: "LittleHorse"},
-		{id: 7, name: "Kuzma"},
-		{id: 8, name: "Mikasa"},
-	]
-	const messages = [
-		{id: 1, text: "Hello my friends"},
-		{id: 2, text: "Yo"},
-		{id: 3, text: "Hi"},
-		{id: 4, text: "Hello, how are you?"},
-		{id: 5, text: "Ooo, haven't seen you a long time!"},
-		{id: 6, text: "Who are you, dude?"},
-		{id: 7, text: "Ahahaha, an interesting situation"},
-		{id: 8, text: "Well, we're glad you're back"},
-	]
-
-	const dialogsElem = dialogs.map( dialog => <DialogItem key={dialog.id} id={dialog.id} name={dialog.name}/>)
-	const messagesElem = messages.map( message => <Message key={message.id} id={message.id} message={message.text}/>)
+const Dialogs = ({dataDialogs, dataMessages}) => {
+	const dialogsElem = dataDialogs.map( dialog => <DialogItem key={dialog.id} id={dialog.id} name={dialog.name}/>)
+	const messagesElem = dataMessages.map( message => <Message key={message.id} id={message.id} message={message.text}/>)
 
 	return (<div>
 		<h2 className={styles.title}>Dialogs:</h2>
