@@ -5,9 +5,10 @@ import Message from './Message/Message.jsx';
 
 
 
-const Dialogs = ({dataDialogs, dataMessages}) => {
-	const dialogsElem = dataDialogs.map( dialog => <DialogItem key={dialog.id} id={dialog.id} name={dialog.name}/>)
-	const messagesElem = dataMessages.map( message => <Message key={message.id} id={message.id} message={message.text}/>)
+const Dialogs = ({dialogs, messages}) => {
+
+	const dialogsElem = dialogs.map( dialog => <DialogItem key={dialog.id} id={dialog.id} name={dialog.name}/>)
+	const messagesElem = messages.map( message => <Message key={message.id} id={message.id} text={message.text}/>)
 
 	return (<div>
 		<h2 className={styles.title}>Dialogs:</h2>

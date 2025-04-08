@@ -11,8 +11,8 @@ import Post from './Post/Post.jsx';
 // const postsElem = posts.map( post => <Post key={post.id} id={post.id} message={post.message} likes={post.likes}/>)
 // console.log(postsElem)
 
-const MyPosts = ({dataPosts}) => {
-	const postsElem = dataPosts.map( post => <Post key={post.id} id={post.id} message={post.message} likes={post.likes}/>)
+const MyPosts = ({posts}) => {
+	const postsElem = posts.map( post => <Post key={post.id} id={post.id} message={post.message} likes={post.likes}/>)
 
 
 	return (<div className={styles.wrapperPosts}>

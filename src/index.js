@@ -15,12 +15,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import {dataDialogs, dataMessages, dataPosts} from "./data";
+import {data} from "./data";
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 	<React.StrictMode>
-		<App dataDialogs={dataDialogs} dataMessages={dataMessages} dataPosts={dataPosts} />
+		<App  data={data}/>
 	</React.StrictMode>
 );

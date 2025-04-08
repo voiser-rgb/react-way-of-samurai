@@ -11,17 +11,19 @@ import Settings from "./components/Settings/Settings";
 
 
 
-const App = ({dataDialogs, dataMessages, dataPosts}) => {
+const App = ({data}) => {
   return (
       <BrowserRouter>
     <div className="app-wrapper">
       <Header />
       <Navbar />
+
         <div className="app-wrapper-content">
             <Routes>
-                <Route path="/profile" element={<Profile dataPosts={dataPosts} />} />
-                <Route path="/dialogs" element={<Dialogs dataDialogs={dataDialogs} dataMessages={dataMessages} />} />
-                <Route path="/dialogs/:id" element={<Dialogs />} />
+                <Route path="/profile" element={<Profile posts={data.posts} />} />
+                <Route path="/dialogs" element={<Dialogs dialogs={data.dialogs} messages={data.messages} />} />
+
+                <Route path="/dialogs/:id" element={<Dialogs  dialogs={data.dialogs} messages={data.messages}/>} />
                 <Route path="/news" element={<News />} />
                 <Route path="/music" element={<Music />} />
                 <Route path="/settings" element={<Settings />} />
