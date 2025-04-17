@@ -6,7 +6,7 @@ const Post = (props) => {
         <div className={styles.item}>
             <div className={styles.wrapper}>
                 <img className={styles.avatar}
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO5NHKBic0zQv_JAq4kkUFenrAQzHqPSRUAg&s.jpg"
+                    src={props.img}
                     alt="avatar"/>
                 <div className={styles.likes}>
                     <span>like {props.likes}</span>

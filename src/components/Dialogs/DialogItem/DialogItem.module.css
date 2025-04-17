@@ -1,11 +1,17 @@
 .item {
+    display: flex;
+    /*position: relative;*/
+    /*align-items: center;*/
     padding: 1rem 0.5rem;
+    /*gap: 12px;*/
     color: #4682B4;
 }
 
 
 .item .text  {
-    display: block;
+    display: inline-block;
+    /*vertical-align: top;*/
+    max-width: fit-content;
     transition: transform 0.3s ease;
     color: #4682B4;
     transform-origin: left center; /* Устанавливаем точку трансформации на левый край */
@@ -14,6 +20,16 @@
             0 2px 4px rgba(0, 0, 0, 0.1),
             0 8px 16px rgba(0, 0, 0, 0.1);
 
+}
+
+
+.item .avatar {
+    vertical-align: middle;
+    margin-right: 0.5rem;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .item a.active .text {

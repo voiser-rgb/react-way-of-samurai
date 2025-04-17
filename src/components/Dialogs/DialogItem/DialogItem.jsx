@@ -7,8 +7,12 @@ const setActive = ({isActive}) => isActive ? styles.active : "";
 const DialogItem = (dialog) => {
 	const id = dialog.id;
 	const name = dialog.name;
+	const img = dialog.img;
 	return (<li id={id} className={styles.item}>
 		<NavLink to={`/dialogs/${id}`} className={setActive}>
+			<img className={styles.avatar}
+				 src={img}
+				 alt="avatar"/>
 			<span className={styles.text}>{name}</span>
 		</NavLink>
 	</li>);

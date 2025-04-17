@@ -16,11 +16,12 @@
 
 .list {
     grid-area: n;
+    padding: 0 0 0 1rem;
 }
 
 
 .messages {
-    display: inline-flex;
+    display: flex;
     flex-direction: column;
     grid-area: m;
     padding: 2rem;

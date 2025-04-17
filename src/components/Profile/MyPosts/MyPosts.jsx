@@ -2,17 +2,8 @@ import React from 'react';
 import styles from "./MyPosts.module.css";
 import Post from './Post/Post.jsx';
 
-
-// const posts = [
-// 	{id: 1, message: "Hi", likes: 10},
-// 	{id: 2, message: "It's my first post", likes: 15},
-// 	{id: 3, message: "How are you dude?", likes: 20},
-// ]
-// const postsElem = posts.map( post => <Post key={post.id} id={post.id} message={post.message} likes={post.likes}/>)
-// console.log(postsElem)
-
 const MyPosts = ({posts}) => {
-	const postsElem = posts.map( post => <Post key={post.id} id={post.id} message={post.message} likes={post.likes}/>)
+	const postsElem = posts.map( post => <Post key={post.id} id={post.id} img={post.img} message={post.message} likes={post.likes}/>)
 
 
 	return (<div className={styles.wrapperPosts}>
