@@ -7,7 +7,6 @@ const setActive = ({isActive}) => isActive ? styles.active : "";
 
 
 const Navbar = (props) => {
-	console.log(props.data.friends);
 	const friend = props.data.friends.map((friend) => <Friend key={friend.id} id={friend.id}  name={friend.name}  avatar={friend.avatar} />);
 
 	return <nav className={styles.nav}>

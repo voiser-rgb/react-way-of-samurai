@@ -4,9 +4,7 @@ import DialogItem from './DialogItem/DialogItem.jsx';
 import Message from './Message/Message.jsx';
 
 
-
 const Dialogs = (props) => {
-
 	const dialogsElem = props.data.dialogs.map( dialog => <DialogItem key={dialog.id} id={dialog.id} name={dialog.name} img = {dialog.img}/>)
 	const messagesElem = props.data.messages.map( message => <Message key={message.id} id={message.id} text={message.text}/>)
 

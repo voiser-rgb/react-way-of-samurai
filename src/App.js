@@ -15,7 +15,7 @@ import Friends from "./components/Friends/Friends";
 
 const App = (props) => {
   return (
-      <BrowserRouter>
+
     <div className="app-wrapper">
       <Header />
       <Navbar data={props.state.sidebar} />
@@ -31,7 +31,7 @@ const App = (props) => {
             </Routes>
         </div>
     </div>
-      </BrowserRouter>
+
   );
 };
 
