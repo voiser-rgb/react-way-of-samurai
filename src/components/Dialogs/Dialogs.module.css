@@ -1,22 +1,24 @@
 .dialogs {
     display: grid;
     grid-template-areas:
-  "n m";
+  "n m"
+  "n f";
     grid-template-columns: 2fr 10fr;
+    grid-template-rows: 1fr auto;
+    padding: 1.8rem;
 }
 
 
 .title {
     width: 100%;
     margin: 2rem auto 0;
-    /*padding: 0 0 1rem 0.5rem;*/
     padding-bottom: 1rem;
-    /*text-align: center;*/
 }
 
 .list {
     grid-area: n;
     padding: 0 0 0 1rem;
+    overflow-y: auto
 }
 
 
@@ -24,8 +26,26 @@
     display: flex;
     flex-direction: column;
     grid-area: m;
+    margin-bottom: 0.5rem;
     padding: 2rem;
     border-left: 2px solid #4682B4;
     background: linear-gradient(45deg, #2F343A, transparent);
     border-radius: 0.7rem;
+    /*scroll для сообщений*/
+    overflow-y: auto;
+}
+
+
+.form {
+    grid-area: f;
+    display: flex;
+}
+
+.form textarea {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.form button {
+
 }

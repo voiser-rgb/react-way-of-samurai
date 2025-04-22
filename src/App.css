@@ -92,3 +92,49 @@ ul {
     /*background: linear-gradient(45deg, #2D383A, #8A8A8A, transparent); серый*/
     /*background: linear-gradient(to right, #212529, #1C1F26);*/
 }
+
+
+textarea {
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    width: 100%;
+    background-color: #2F343A;
+    border: 2px solid #2F343A;
+    border-left: 2px  solid #4682B4;
+    border-radius: 0.7rem;
+    color: white;
+    outline: none;
+    box-sizing: border-box;
+    resize: none; /* Чтобы пользователь мог менять высоту, но не ширину */
+}
+
+
+button {
+    background: linear-gradient(45deg, #183462, #2D383A);
+    border: 2px solid #4682B4;
+    border-radius: 0.7rem;
+    color: #99a2ab;
+    font-family: "Exo-Italic-VariableFont_wght", sans-serif;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(24, 52, 98, 0.5);
+}
+
+button:hover
+ {
+    background: linear-gradient(45deg, #142b51, #1e2526);
+    border-color: #008b8d; /* цвет из заголовка h2 */
+    color: rgb(0, 139, 141);
+    outline: none;
+    /*box-shadow: 0 5px 5px rgb(0, 139, 141);*/
+    box-shadow: 3px 3px 3px rgb(0, 139, 141);
+}
+
+button:active {
+    background: linear-gradient(45deg, #102340, #080a0a);
+    border-color: #4682B4;
+    color: #99a2ab;
+    box-shadow: inset 0 3px 5px rgba(24, 52, 98, 0.7);
+}

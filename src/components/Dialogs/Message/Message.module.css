@@ -1,10 +1,10 @@
 .message {
     padding: 1rem;
+    margin: 0;
     width: fit-content;
     border-radius: 0.5rem;
     background-color: #0a524d8f;
     color: goldenrod;
-    margin: 0;
 }
 
 .message:not(:last-child) {

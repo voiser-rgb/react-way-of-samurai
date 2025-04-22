@@ -7,6 +7,12 @@ import Message from './Message/Message.jsx';
 const Dialogs = (props) => {
 	const dialogsElem = props.data.dialogs.map( dialog => <DialogItem key={dialog.id} id={dialog.id} name={dialog.name} img = {dialog.img}/>)
 	const messagesElem = props.data.messages.map( message => <Message key={message.id} id={message.id} text={message.text}/>)
+	const newMessage =  React.createRef();
+
+	const addMessage = () => {
+		let textarea = newMessage.current.value;
+		alert(textarea);
+	}
 
 	return (<div>
 		<h2 className={styles.title}>Dialogs:</h2>
@@ -19,6 +25,14 @@ const Dialogs = (props) => {
 			<div className={styles.messages}>
 				{messagesElem}
 			</div>
+
+			<form className={styles.form}>
+				{/*<label htmlFor="chat-message">Enter a message:</label>*/}
+				<textarea ref={newMessage} name="message" id="chat-message" rows="1" placeholder="Write your message..."></textarea>
+				<div>
+					<button onClick={addMessage}>add</button>
+				</div>
+			</form>
 		</div>
 	</div>);
 }
