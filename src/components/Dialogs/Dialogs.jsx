@@ -9,9 +9,12 @@ const Dialogs = (props) => {
 	const messagesElem = props.data.messages.map( message => <Message key={message.id} id={message.id} text={message.text}/>)
 	const newMessage =  React.createRef();
 
-	const addMessage = () => {
+	const addMessage = (e) => {
+		e.preventDefault();
 		let textarea = newMessage.current.value;
 		alert(textarea);
+		console.log("Dialogs", textarea);
+		newMessage.current.value = "";
 	}
 
 	return (<div>

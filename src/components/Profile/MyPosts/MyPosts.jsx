@@ -2,14 +2,16 @@ import React from 'react';
 import styles from "./MyPosts.module.css";
 import Post from './Post/Post.jsx';
 
-const MyPosts = ({posts}) => {
-	const postsElem = posts.map( post => <Post key={post.id} id={post.id} img={post.img} message={post.message} likes={post.likes}/>)
+const MyPosts = (props) => {
+	const postsElem = props.posts.map( post => <Post key={post.id} id={post.id} img={post.img} message={post.message} likes={post.likes}/>)
 
 	const newPostElement = React.createRef();
 
-	const addPost = () => {
+	const addPost = (e) => {
+		e.preventDefault();
 		let textarea = newPostElement.current.value;
-		alert(textarea);
+		props.addPost(textarea);
+		newPostElement.current.value = ""
 	};
 
 	return (<div className={styles.wrapperPosts}>

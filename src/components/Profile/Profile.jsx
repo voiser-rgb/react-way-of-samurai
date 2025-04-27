@@ -8,7 +8,7 @@ import ProfileInfo from "./ProfileInfo/ProfileInfo.jsx";
 const Profile = (props) => {
 	return <div className={styles.content}>
 		<ProfileInfo />
-		<MyPosts posts={props.data.posts} />
+		<MyPosts posts={props.data.posts} addPost={props.addPost} />
 	</div>
 }
 

@@ -1,10 +1,12 @@
- let state = {
+import {renderEntireTree} from "../render";
+
+let state = {
 	//  Разделить на ветки(страницы)
 	 profilePage : {
 		 posts: [
 			 {id: 1, message: "Hi", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO5NHKBic0zQv_JAq4kkUFenrAQzHqPSRUAg&s.jpg", likes: 10},
-			 {id: 2, message: "It's my first post", img: "https://avatars.steamstatic.com/17747087ad49d60f8b5cfb19c3fe88fd62c70ec5_medium.jpg",  likes: 15},
-			 {id: 3, message: "How are you dude?", img: "https://old.grand-rp.su/data/avatars/m/98/98787.jpg?1559897790", likes: 20},
+			 {id: 2, message: "It's my first post", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO5NHKBic0zQv_JAq4kkUFenrAQzHqPSRUAg&s.jpg",  likes: 15},
+			 {id: 3, message: "How are you dude?", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO5NHKBic0zQv_JAq4kkUFenrAQzHqPSRUAg&s.jpg", likes: 20},
 		 ]
 	 },
 
@@ -38,6 +40,30 @@
 			{id: 3, name: "Lapov", avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTO5pisyDSGhZGdYcVd1gYVZ4ZrKdlIAwgk2A&s"},
  ],
  }
+}
+
+// !test
+const randomId = () => {
+	return Math.floor(Math.random() * Number.MAX_SAFE_INTEGER);
+}
+
+function randomIdTest() {
+	const array = new Uint32Array(3);
+	crypto.getRandomValues(array);
+	return (array[0] * 0x100000000) + array[1];
+}
+// !test
+
+export const addPost = (postMessage) => {
+	const newPost = {
+		id: randomIdTest(),
+		message: postMessage,
+		img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO5NHKBic0zQv_JAq4kkUFenrAQzHqPSRUAg&s.jpg",
+		likes: 0,
+	}
+	state.profilePage.posts.push(newPost);
+	console.log(state.profilePage.posts);
+	renderEntireTree(state);
 }
 
 export default state;
