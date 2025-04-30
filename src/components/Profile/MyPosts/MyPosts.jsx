@@ -3,22 +3,27 @@ import styles from "./MyPosts.module.css";
 import Post from './Post/Post.jsx';
 
 const MyPosts = (props) => {
-	const postsElem = props.posts.map( post => <Post key={post.id} id={post.id} img={post.img} message={post.message} likes={post.likes}/>)
+	const postsElem = props.posts.map(post => <Post key={post.id} id={post.id} img={post.img} message={post.message}
+													likes={post.likes}/>)
 
 	const newPostElement = React.createRef();
 
 	const addPost = (e) => {
 		e.preventDefault();
-		let textarea = newPostElement.current.value;
-		props.addPost(textarea);
-		newPostElement.current.value = ""
+		props.addPost();
 	};
+
+	const onPostChange = () => {
+		let text = newPostElement.current.value;
+		props.updateText(text);
+	}
 
 	return (<div className={styles.wrapperPosts}>
 		<h3>My posts</h3>
 		<form className={styles.formChat}>
 			<label htmlFor="chat-message">Enter a message:</label>
-			<textarea ref={newPostElement} id="chat-message" name="message" cols="30" rows="5"
+			<textarea onChange={onPostChange} value={props.text} ref={newPostElement} id="chat-message" name="message"
+					  cols="30" rows="5"
 					  placeholder="Write your message..."></textarea>
 			<div className={styles.wrapper}>
 				<button onClick={addPost}>add post</button>

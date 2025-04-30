@@ -5,6 +5,7 @@ import styles from './Message.module.css';
 const Message = (message) => {
 	const id = message.id;
 	const text = message.text;
+	console.log('Message', text);
 	return (<p id={id} className={styles.message}>{text}</p>)
 }
 
