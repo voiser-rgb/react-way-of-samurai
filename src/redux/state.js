@@ -1,4 +1,9 @@
-import {renderEntireTree} from "../render";
+// let renderEntireTree = () => {
+// 	console.log("state renderEntireTree");
+// }
+
+
+let renderEntireTree;
 
 let state = {
 	//  Разделить на ветки(страницы)
@@ -43,7 +48,6 @@ let state = {
  ],
  }
 }
-
 // !test
 //* Функции для генерации id
 const randomId = () => {
@@ -58,15 +62,12 @@ function randomIdTest() {
 
 //* Window чтобы можно было в браузере обратиться к state
 window.state = state;
-
 //* Profile
 //* Функция для обновления текста
 export const updateText = (newText) => {
 	state.profilePage.newPostText = newText;
 	renderEntireTree(state);
 }
-
-
 //* Функция для добавления текста
 export const addPost = () => {
 	const newPost = {
@@ -77,7 +78,6 @@ export const addPost = () => {
 	}
 	state.profilePage.posts.push(newPost);
 	state.profilePage.newPostText = "";
-	console.log(state.profilePage.posts);
 	renderEntireTree(state);
 }
 
@@ -88,7 +88,6 @@ export const updateMessage = (newText) => {
 	state.dialogsPage.newMessageText = newText;
 	renderEntireTree(state);
 }
-
 export const addMessage = () => {
 	const newMessage = {
 		id: randomIdTest(),
@@ -96,10 +95,14 @@ export const addMessage = () => {
 	}
 	state.dialogsPage.messages.push(newMessage);
 	state.dialogsPage.newMessageText = "";
-	console.log(state.dialogsPage.messages);
 	renderEntireTree(state);
 }
 
+//! test^
+
+export const subscribe = (observer) => {
+	renderEntireTree = observer;
+}
 
 
 export default state;
