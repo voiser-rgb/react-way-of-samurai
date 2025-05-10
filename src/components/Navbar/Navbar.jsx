@@ -7,7 +7,7 @@ const setActive = ({isActive}) => isActive ? styles.active : "";
 
 
 const Navbar = (props) => {
-	const friend = props.data.friends.map((friend) => <Friend key={friend.id} id={friend.id}  name={friend.name}  avatar={friend.avatar} />);
+	// const friend = props.data.friends.map((friend) => <Friend key={friend.id} id={friend.id}  name={friend.name}  avatar={friend.avatar} />);
 
 	return <nav className={styles.nav}>
 		<div className={`${styles.item} ${styles.active}`}>
@@ -32,7 +32,7 @@ const Navbar = (props) => {
 		<div className={styles.item}>
 			<NavLink className={setActive} to="/friends">Friends:</NavLink>
 			<ul className={styles.list}>
-				{friend}
+				{/*{friend}*/}
 			</ul>
 		</div>
 	</nav>

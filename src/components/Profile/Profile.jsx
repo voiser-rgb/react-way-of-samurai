@@ -4,15 +4,18 @@ import MyPosts from "./MyPosts/MyPosts.jsx";
 import ProfileInfo from "./ProfileInfo/ProfileInfo.jsx";
 
 
-
 const Profile = (props) => {
+	const posts = props.profilePage.posts;
+	const text = props.profilePage.newPostText;
+
+
 	return <div className={styles.content}>
-		<ProfileInfo />
+		<ProfileInfo/>
 		<MyPosts
-			posts={props.data.posts}
+			posts={posts}
 			addPost={props.addPost}
 			updateText={props.updateText}
-			text={props.data.newPostText}
+			text={text}
 		/>
 	</div>
 }

@@ -7,15 +7,15 @@ const MyPosts = (props) => {
 													likes={post.likes}/>)
 
 	const newPostElement = React.createRef();
-
 	const addPost = (e) => {
 		e.preventDefault();
-		props.addPost();
+		debugger;
+		props.addPost("profilePage");
 	};
 
 	const onPostChange = () => {
 		let text = newPostElement.current.value;
-		props.updateText(text);
+		props.updateText("profilePage", text);
 	}
 
 	return (<div className={styles.wrapperPosts}>
