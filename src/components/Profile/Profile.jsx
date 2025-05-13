@@ -12,9 +12,8 @@ const Profile = (props) => {
 	return <div className={styles.content}>
 		<ProfileInfo/>
 		<MyPosts
+			dispatch={props.dispatch}
 			posts={posts}
-			addPost={props.addPost}
-			updateText={props.updateText}
 			text={text}
 		/>
 	</div>

@@ -9,13 +9,14 @@ const MyPosts = (props) => {
 	const newPostElement = React.createRef();
 	const addPost = (e) => {
 		e.preventDefault();
-		debugger;
-		props.addPost("profilePage");
+		const action = {type: "ADD", page: "profilePage"};
+		props.dispatch(action)
 	};
 
 	const onPostChange = () => {
 		let text = newPostElement.current.value;
-		props.updateText("profilePage", text);
+		const action = {type: "UPDATE-TEXT", page: "profilePage", newText: text}
+		props.dispatch(action);
 	}
 
 	return (<div className={styles.wrapperPosts}>

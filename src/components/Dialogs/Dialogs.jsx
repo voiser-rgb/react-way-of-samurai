@@ -14,12 +14,12 @@ const Dialogs = (props) => {
 
 	const addMessage = (e) => {
 		e.preventDefault();
-		props.addMessage("dialogsPage");
+		props.dispatch({type: "ADD", page: "dialogsPage"});
 	}
 
 	const onMessageChange = () => {
 		let message = newMessage.current.value;
-		props.updateText("dialogsPage", message);
+		props.dispatch({type: "UPDATE-TEXT", page: "dialogsPage", newText: message});
 	}
 
 	return (<div>

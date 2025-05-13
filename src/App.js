@@ -12,31 +12,26 @@ import Friends from "./components/Friends/Friends";
 
 const App = (props) => {
 	const state = props.store.getState();
-	const add = props.store.add.bind(props.store);
-	const updateText = props.store.updateText.bind(props.store);
+	const dispatch = props.store.dispatch.bind(props.store);
 
 	return (<div className="app-wrapper">
-			<Header/>
-			{/*<Navbar data={props.state.sidebar} />*/}
-			<Navbar/>
-			<div className="app-wrapper-content">
-				<Routes>
-					<Route path="/profile" element={<Profile profilePage={state.profilePage}
-															 addPost={add}
-															 updateText={updateText}/>}/>
-					{/*<Route path="/dialogs" element={<Dialogs  data={props.state.dialogsPage}  addMessage={props.addMessage} updateMessage={props.updateMessage} />} />*/}
-					<Route path="/dialogs" element={<Dialogs data={state.dialogsPage}
-															 addMessage={add}
-															 updateText={updateText}/>}/>
-					<Route path="/dialogs/:id" element={<Dialogs data={state.dialogsPage}/>}/>
-					<Route path="/news" element={<News/>}/>
-					<Route path="/music" element={<Music/>}/>
-					<Route path="/settings" element={<Settings/>}/>
-					<Route path="/friends" element={<Friends/>}/>
-				</Routes>
-			</div>
+		<Header/>
+		<Navbar data={state.sidebar}/>
+		<div className="app-wrapper-content">
+			<Routes>
+				<Route path="/profile" element={<Profile profilePage={state.profilePage}
+														 dispatch={dispatch}/>}/>
+
+				<Route path="/dialogs" element={<Dialogs data={state.dialogsPage}
+														 dispatch={dispatch}/>}/>
+				<Route path="/dialogs/:id" element={<Dialogs data={state.dialogsPage}/>}/>
+				<Route path="/news" element={<News/>}/>
+				<Route path="/music" element={<Music/>}/>
+				<Route path="/settings" element={<Settings/>}/>
+				<Route path="/friends" element={<Friends/>}/>
+			</Routes>
 		</div>
-	);
+	</div>);
 };
 
 export default App;

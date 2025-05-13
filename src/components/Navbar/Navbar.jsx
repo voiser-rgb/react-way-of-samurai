@@ -1,13 +1,13 @@
 import React from 'react';
 import styles from "./Navbar.module.css";
 import {NavLink} from "react-router-dom";
-import Friend from "../Friends/Friend/Friend";
+import Friend from "../Friends/Friend/Friend.jsx";
 
 const setActive = ({isActive}) => isActive ? styles.active : "";
 
 
 const Navbar = (props) => {
-	// const friend = props.data.friends.map((friend) => <Friend key={friend.id} id={friend.id}  name={friend.name}  avatar={friend.avatar} />);
+	const friend = props.data.friends.map((friend) => <Friend key={friend.id} id={friend.id}  name={friend.name}  avatar={friend.avatar} />);
 
 	return <nav className={styles.nav}>
 		<div className={`${styles.item} ${styles.active}`}>
@@ -32,7 +32,7 @@ const Navbar = (props) => {
 		<div className={styles.item}>
 			<NavLink className={setActive} to="/friends">Friends:</NavLink>
 			<ul className={styles.list}>
-				{/*{friend}*/}
+				{friend}
 			</ul>
 		</div>
 	</nav>

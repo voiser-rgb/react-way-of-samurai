@@ -1,9 +1,7 @@
 let store = {
-
 	_callSubscriber() {
 		console.log("Not subscribe!");
 	},
-
 	//* Данные
 	_state: {
 		profilePage: {
@@ -72,26 +70,24 @@ let store = {
 				avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTO5pisyDSGhZGdYcVd1gYVZ4ZrKdlIAwgk2A&s"
 			},],
 		}
-	}, //* Получить данные из state
-	getState() {
-		return this._state;
-	}, //* Обновление текста
-	updateText(page, value) {
-		if (page === "profilePage") {
-			this._state.profilePage.newPostText = value;
-			this._callSubscriber(this._state);
-		} else if (page === "dialogsPage") {
-			this._state.dialogsPage.newMessageText = value;
-			this._callSubscriber(this._state);
-		}
-	}, //* Генерация случайного ID для новых постов
+	},
 	_randomId() {
 		const array = new Uint32Array(3);
 		crypto.getRandomValues(array);
 		return (array[0] * 0x100000000) + array[1];
-	}, //* Добавляет новый пост в profilePage
-	add(page) {
-		if (page === "profilePage") {
+	}, //* Генерация случайного ID для новых постов.
+
+	getState() {
+		return this._state;
+	}, //* Получить данные из state.
+	subscribe(observer) {
+		this._callSubscriber = observer;
+	}, //* Устанавливает функцию, которую нужно вызвать при изменении state.
+
+	//* Add, Update
+	dispatch(action) {
+	if (action.type === "ADD") {
+		if (action.page === "profilePage") {
 			const newPost = {
 				id: this._randomId(),
 				message: this._state.profilePage.newPostText,
@@ -101,17 +97,24 @@ let store = {
 			this._state.profilePage.posts.push(newPost);
 			this._state.profilePage.newPostText = "";
 			this._callSubscriber(this._state);
-		} else if (page === "dialogsPage") {
+		} else if (action.page === "dialogsPage") {
 			const newMessage = {
-				id: this._randomId(), text: this._state.dialogsPage.newMessageText,
+				id: this._randomId(),
+				text: this._state.dialogsPage.newMessageText,
 			}
 			this._state.dialogsPage.messages.push(newMessage);
 			this._state.dialogsPage.newMessageText = "";
 			this._callSubscriber(this._state);
 		}
-	}, //* Устанавливает функцию, которую нужно вызвать при изменении state".
-	subscribe(observer) {
-		this._callSubscriber = observer;
+	} else if (action.type === "UPDATE-TEXT") {
+		if (action.page === "profilePage") {
+			this._state.profilePage.newPostText = action.newText;
+			this._callSubscriber(this._state);
+		} else if (action.page === "dialogsPage") {
+			this._state.dialogsPage.newMessageText = action.newText;
+			this._callSubscriber(this._state);
+		}
+	}
 	}
 }
 
