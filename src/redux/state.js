@@ -1,7 +1,11 @@
+const ADD = 'ADD';
+const UPDATE_TEXT = 'UPDATE_TEXT';
+
 let store = {
 	_callSubscriber() {
 		console.log("Not subscribe!");
 	},
+
 	//* Данные
 	_state: {
 		profilePage: {
@@ -20,7 +24,7 @@ let store = {
 				message: "How are you dude?",
 				img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO5NHKBic0zQv_JAq4kkUFenrAQzHqPSRUAg&s.jpg",
 				likes: 20
-			},], newPostText: "I'm writing to someone..."
+			},], newPostText: ""
 		},
 
 		dialogsPage: {
@@ -52,7 +56,7 @@ let store = {
 				id: 4, text: "Hello, how are you?"
 			}, {id: 5, text: "Ooo, haven't seen you a long time!"}, {id: 6, text: "Who are you, dude?"}, {
 				id: 7, text: "Ahahaha, an interesting situation"
-			}, {id: 8, text: "Well, we're glad you're back"},], newMessageText: "I'm writing to someone...",
+			}, {id: 8, text: "Well, we're glad you're back"},], newMessageText: "",
 		},
 
 		sidebar: {
@@ -71,52 +75,59 @@ let store = {
 			},],
 		}
 	},
+
+	//* Генерация случайного ID для новых постов.
 	_randomId() {
 		const array = new Uint32Array(3);
 		crypto.getRandomValues(array);
 		return (array[0] * 0x100000000) + array[1];
-	}, //* Генерация случайного ID для новых постов.
+	},
 
+	//* Получить данные из state.
 	getState() {
 		return this._state;
-	}, //* Получить данные из state.
+	},
+
+	//* Устанавливает функцию, которую нужно вызвать при изменении state.
 	subscribe(observer) {
 		this._callSubscriber = observer;
-	}, //* Устанавливает функцию, которую нужно вызвать при изменении state.
+	},
 
 	//* Add, Update
 	dispatch(action) {
-	if (action.type === "ADD") {
-		if (action.page === "profilePage") {
-			const newPost = {
-				id: this._randomId(),
-				message: this._state.profilePage.newPostText,
-				img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO5NHKBic0zQv_JAq4kkUFenrAQzHqPSRUAg&s.jpg",
-				likes: 0,
+		if (action.type === ADD) {
+			if (action.page === "profilePage") {
+				const newPost = {
+					id: this._randomId(),
+					message: this._state.profilePage.newPostText,
+					img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO5NHKBic0zQv_JAq4kkUFenrAQzHqPSRUAg&s.jpg",
+					likes: 0,
+				}
+				this._state.profilePage.posts.push(newPost);
+				this._state.profilePage.newPostText = "";
+				this._callSubscriber(this._state);
+			} else if (action.page === "dialogsPage") {
+				const newMessage = {
+					id: this._randomId(), text: this._state.dialogsPage.newMessageText,
+				}
+				this._state.dialogsPage.messages.push(newMessage);
+				this._state.dialogsPage.newMessageText = "";
+				this._callSubscriber(this._state);
 			}
-			this._state.profilePage.posts.push(newPost);
-			this._state.profilePage.newPostText = "";
-			this._callSubscriber(this._state);
-		} else if (action.page === "dialogsPage") {
-			const newMessage = {
-				id: this._randomId(),
-				text: this._state.dialogsPage.newMessageText,
+		} else if (action.type === UPDATE_TEXT) {
+			if (action.page === "profilePage") {
+				this._state.profilePage.newPostText = action.newText;
+				this._callSubscriber(this._state);
+			} else if (action.page === "dialogsPage") {
+				this._state.dialogsPage.newMessageText = action.newText;
+				this._callSubscriber(this._state);
 			}
-			this._state.dialogsPage.messages.push(newMessage);
-			this._state.dialogsPage.newMessageText = "";
-			this._callSubscriber(this._state);
 		}
-	} else if (action.type === "UPDATE-TEXT") {
-		if (action.page === "profilePage") {
-			this._state.profilePage.newPostText = action.newText;
-			this._callSubscriber(this._state);
-		} else if (action.page === "dialogsPage") {
-			this._state.dialogsPage.newMessageText = action.newText;
-			this._callSubscriber(this._state);
-		}
-	}
 	}
 }
+
+export const addActionCreator = (page) => ({type: ADD, page: page});
+export const updateActionCreator = (page, text) => ({type: UPDATE_TEXT, page: page, newText: text});
 
 
 export default store;

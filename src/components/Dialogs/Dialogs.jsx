@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Dialogs.module.css';
 import DialogItem from './DialogItem/DialogItem.jsx';
 import Message from './Message/Message.jsx';
+import {addActionCreator, updateActionCreator} from "../../redux/state";
 
 
 const Dialogs = (props) => {
@@ -9,17 +10,17 @@ const Dialogs = (props) => {
 																	 img={dialog.img}/>)
 	const messagesElem = props.data.messages.map(message => <Message key={message.id} id={message.id}
 																	 text={message.text}/>)
-	const newMessage = React.createRef();
-
 
 	const addMessage = (e) => {
 		e.preventDefault();
-		props.dispatch({type: "ADD", page: "dialogsPage"});
+		// props.dispatch({type: "ADD", page: "dialogsPage"});
+		props.dispatch(addActionCreator("dialogsPage"))
 	}
 
-	const onMessageChange = () => {
-		let message = newMessage.current.value;
-		props.dispatch({type: "UPDATE-TEXT", page: "dialogsPage", newText: message});
+	const onMessageChange = (e) => {
+		let message = e.target.value;
+		// props.dispatch({type: "UPDATE-TEXT", page: "dialogsPage", newText: message});
+		props.dispatch(updateActionCreator("dialogsPage", message));
 	}
 
 	return (<div>
@@ -36,7 +37,7 @@ const Dialogs = (props) => {
 			<form className={styles.form}>
 				<textarea
 					onChange={onMessageChange}
-					ref={newMessage} value={props.data.newMessageText}
+					value={props.data.newMessageText}
 					name="message"
 					id="chat-message"
 					rows="1"
