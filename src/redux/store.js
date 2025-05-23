@@ -1,5 +1,6 @@
-const ADD = 'ADD';
-const UPDATE_TEXT = 'UPDATE_TEXT';
+import profileReducer from "./profile-reducer";
+import dialogsReducer from "./dialogs-reducer";
+import sidebarReducer from "./sidebar-reducer";
 
 let store = {
 	_callSubscriber() {
@@ -24,7 +25,8 @@ let store = {
 				message: "How are you dude?",
 				img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO5NHKBic0zQv_JAq4kkUFenrAQzHqPSRUAg&s.jpg",
 				likes: 20
-			},], newPostText: ""
+			},],
+			newPostText: "",
 		},
 
 		dialogsPage: {
@@ -75,18 +77,18 @@ let store = {
 			},],
 		}
 	},
-
-	//* Генерация случайного ID для новых постов.
-	_randomId() {
-		const array = new Uint32Array(3);
-		crypto.getRandomValues(array);
-		return (array[0] * 0x100000000) + array[1];
-	},
-
 	//* Получить данные из state.
 	getState() {
 		return this._state;
 	},
+
+	//* Генерация случайного ID для новых постов.
+	_randomId ()  {
+		const array = new Uint32Array(4);
+		crypto.getRandomValues(array);
+		return array.join('');
+	},
+
 
 	//* Устанавливает функцию, которую нужно вызвать при изменении state.
 	subscribe(observer) {
@@ -95,40 +97,12 @@ let store = {
 
 	//* Add, Update
 	dispatch(action) {
-		if (action.type === ADD) {
-			if (action.page === "profilePage") {
-				const newPost = {
-					id: this._randomId(),
-					message: this._state.profilePage.newPostText,
-					img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO5NHKBic0zQv_JAq4kkUFenrAQzHqPSRUAg&s.jpg",
-					likes: 0,
-				}
-				this._state.profilePage.posts.push(newPost);
-				this._state.profilePage.newPostText = "";
-				this._callSubscriber(this._state);
-			} else if (action.page === "dialogsPage") {
-				const newMessage = {
-					id: this._randomId(), text: this._state.dialogsPage.newMessageText,
-				}
-				this._state.dialogsPage.messages.push(newMessage);
-				this._state.dialogsPage.newMessageText = "";
-				this._callSubscriber(this._state);
-			}
-		} else if (action.type === UPDATE_TEXT) {
-			if (action.page === "profilePage") {
-				this._state.profilePage.newPostText = action.newText;
-				this._callSubscriber(this._state);
-			} else if (action.page === "dialogsPage") {
-				this._state.dialogsPage.newMessageText = action.newText;
-				this._callSubscriber(this._state);
-			}
-		}
+		this._state.profilePage = profileReducer(this._state.profilePage, action, this._randomId());
+		this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action, this._randomId());
+		this._state.sidebar = sidebarReducer(this._state.sidebar, action);
+		this._callSubscriber(this._state);
 	}
 }
-
-export const addActionCreator = (page) => ({type: ADD, page: page});
-export const updateActionCreator = (page, text) => ({type: UPDATE_TEXT, page: page, newText: text});
-
 
 export default store;
 window.store = store;

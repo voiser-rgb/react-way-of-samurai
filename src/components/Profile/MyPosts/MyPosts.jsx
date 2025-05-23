@@ -1,20 +1,20 @@
 import React from 'react';
 import styles from "./MyPosts.module.css";
 import Post from './Post/Post.jsx';
-import {addActionCreator, updateActionCreator} from "../../../redux/state";
+import {addPostActionCreator, updateNewPostActionCreator} from "../../../redux/profile-reducer";
 
 const MyPosts = (props) => {
 	const postsElem = props.posts.map(post => <Post key={post.id} id={post.id} img={post.img} message={post.message}
 													likes={post.likes}/>)
-	
+
 	const addPost = (e) => {
 		e.preventDefault();
-		props.dispatch(addActionCreator("profilePage"))
+		props.dispatch(addPostActionCreator("profilePage"))
 	};
 
 	const onPostChange = (e) => {
 		let text = e.target.value;
-		props.dispatch(updateActionCreator("profilePage", text));
+		props.dispatch(updateNewPostActionCreator("profilePage", text));
 	}
 
 	return (<div className={styles.wrapperPosts}>
