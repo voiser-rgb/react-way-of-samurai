@@ -13,10 +13,10 @@ import Friends from "./components/Friends/Friends";
 const App = (props) => {
 	const state = props.store.getState();
 	const dispatch = props.store.dispatch.bind(props.store);
-
 	return (<div className="app-wrapper">
 		<Header/>
-		<Navbar data={state.sidebar}/>
+		<Navbar data={state.sidebarPage}/>
+		{/*<Navbar/>*/}
 		<div className="app-wrapper-content">
 			<Routes>
 				<Route path="/profile" element={<Profile profilePage={state.profilePage}

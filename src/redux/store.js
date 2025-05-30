@@ -97,12 +97,18 @@ let store = {
 
 	//* Add, Update
 	dispatch(action) {
-		this._state.profilePage = profileReducer(this._state.profilePage, action, this._randomId());
-		this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action, this._randomId());
+		this._state.profilePage = profileReducer(this._state.profilePage, action);
+		this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
 		this._state.sidebar = sidebarReducer(this._state.sidebar, action);
-		this._callSubscriber(this._state);
+		this._callSubscriber();
 	}
 }
+
+export let randomId =  () => {
+	const array = new Uint32Array(4);
+	crypto.getRandomValues(array);
+	return array.join('');
+};
 
 export default store;
 window.store = store;

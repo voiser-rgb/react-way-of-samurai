@@ -1,17 +1,38 @@
+import {randomId} from "./store";
+
 const ADD_POST = 'ADD_POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE_TEXT';
 
-const profileReducer = (state, action, id) => {
+const initialState = {
+		posts: [{
+			id: 1,
+			message: "Hi",
+			img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO5NHKBic0zQv_JAq4kkUFenrAQzHqPSRUAg&s.jpg",
+			likes: 10
+		}, {
+			id: 2,
+			message: "It's my first post",
+			img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO5NHKBic0zQv_JAq4kkUFenrAQzHqPSRUAg&s.jpg",
+			likes: 15
+		}, {
+			id: 3,
+			message: "How are you dude?",
+			img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO5NHKBic0zQv_JAq4kkUFenrAQzHqPSRUAg&s.jpg",
+			likes: 20
+		},],
+		newPostText: "",
+}
+
+const profileReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case ADD_POST:
 			const newPost = {
-				id: id,
+				id: randomId(),
 				message: state.newPostText,
 				img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO5NHKBic0zQv_JAq4kkUFenrAQzHqPSRUAg&s.jpg",
 				likes: 0,
 			}
 			state.posts.push(newPost);
-			console.log("profileReducer: ", newPost);
 			state.newPostText = "";
 			return state;
 		case UPDATE_NEW_POST_TEXT:

@@ -14,13 +14,15 @@ const Dialogs = (props) => {
 	const addMessage = (e) => {
 		e.preventDefault();
 		// props.dispatch({type: "ADD", page: "dialogsPage"});
-		props.dispatch(sendMessageCreator("dialogsPage"))
+		const action = sendMessageCreator("dialogsPage");
+		props.dispatch(action);
 	}
 
 	const onMessageChange = (e) => {
-		let message = e.target.value;
+		const message = e.target.value;
 		// props.dispatch({type: "UPDATE-TEXT", page: "dialogsPage", newText: message});
-		props.dispatch(updateNewMessageBodyCreator("dialogsPage", message));
+		const action = updateNewMessageBodyCreator("dialogsPage", message);
+		props.dispatch(action);
 	}
 
 	return (<div>

@@ -9,12 +9,14 @@ const MyPosts = (props) => {
 
 	const addPost = (e) => {
 		e.preventDefault();
-		props.dispatch(addPostActionCreator("profilePage"))
+		const action = addPostActionCreator("profilePage");
+		props.dispatch(action);
 	};
 
 	const onPostChange = (e) => {
-		let text = e.target.value;
-		props.dispatch(updateNewPostActionCreator("profilePage", text));
+		const text = e.target.value;
+		const action = updateNewPostActionCreator("profilePage", text)
+		props.dispatch(action);
 	}
 
 	return (<div className={styles.wrapperPosts}>
