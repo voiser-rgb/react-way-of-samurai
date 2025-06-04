@@ -1,22 +1,18 @@
 import React from 'react';
 import styles from "./MyPosts.module.css";
 import Post from './Post/Post.jsx';
-import {addPostActionCreator, updateNewPostActionCreator} from "../../../redux/profile-reducer";
 
 const MyPosts = (props) => {
 	const postsElem = props.posts.map(post => <Post key={post.id} id={post.id} img={post.img} message={post.message}
 													likes={post.likes}/>)
-
-	const addPost = (e) => {
+	const onAddPost = (e) => {
 		e.preventDefault();
-		const action = addPostActionCreator("profilePage");
-		props.dispatch(action);
+		props.addPost()
 	};
 
 	const onPostChange = (e) => {
 		const text = e.target.value;
-		const action = updateNewPostActionCreator("profilePage", text)
-		props.dispatch(action);
+		props.updateNewPostText(text);
 	}
 
 	return (<div className={styles.wrapperPosts}>
@@ -24,13 +20,13 @@ const MyPosts = (props) => {
 		<form className={styles.formChat}>
 			<label htmlFor="chat-message">Enter a message:</label>
 			<textarea onChange={onPostChange}
-					  value={props.text}
+					  value={props.newPostText}
 					  id="chat-message"
 					  name="message"
 					  cols="30" rows="5"
 					  placeholder="Write your message..."></textarea>
 			<div className={styles.wrapper}>
-				<button onClick={addPost}>add post</button>
+				<button onClick={onAddPost}>add post</button>
 			</div>
 		</form>
 		<h3>

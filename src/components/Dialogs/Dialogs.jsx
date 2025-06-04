@@ -2,27 +2,26 @@ import React from 'react';
 import styles from './Dialogs.module.css';
 import DialogItem from './DialogItem/DialogItem.jsx';
 import Message from './Message/Message.jsx';
-import {sendMessageCreator, updateNewMessageBodyCreator} from "../../redux/dialogs-reducer";
-
 
 const Dialogs = (props) => {
-	const dialogsElem = props.data.dialogs.map(dialog => <DialogItem key={dialog.id} id={dialog.id} name={dialog.name}
-																	 img={dialog.img}/>)
-	const messagesElem = props.data.messages.map(message => <Message key={message.id} id={message.id}
-																	 text={message.text}/>)
+	const dialogsElem = props.dialogsPage.dialogs
+		.map(dialog => <DialogItem key={dialog.id}
+								   id={dialog.id}
+								   name={dialog.name}
+								   img={dialog.img}/>)
+	const messagesElem = props.dialogsPage.messages
+		.map(message => <Message key={message.id}
+								 id={message.id}
+								 text={message.text}/>)
 
-	const addMessage = (e) => {
-		e.preventDefault();
-		// props.dispatch({type: "ADD", page: "dialogsPage"});
-		const action = sendMessageCreator("dialogsPage");
-		props.dispatch(action);
+	const onTextareaChange = (e) => {
+		const message = e.target.value;
+		props.onMessageChange(message);
 	}
 
-	const onMessageChange = (e) => {
-		const message = e.target.value;
-		// props.dispatch({type: "UPDATE-TEXT", page: "dialogsPage", newText: message});
-		const action = updateNewMessageBodyCreator("dialogsPage", message);
-		props.dispatch(action);
+	const onFormSubmit = (e) => {
+		e.preventDefault();
+		props.onSendMessage();
 	}
 
 	return (<div>
@@ -38,15 +37,15 @@ const Dialogs = (props) => {
 			</div>
 			<form className={styles.form}>
 				<textarea
-					onChange={onMessageChange}
-					value={props.data.newMessageText}
+					onChange={onTextareaChange}
+					value={props.dialogsPage.newMessageText}
 					name="message"
 					id="chat-message"
 					rows="1"
 					placeholder="Write your message...">
 				</textarea>
 				<div>
-					<button onClick={addMessage}>add</button>
+					<button onClick={onFormSubmit}>add</button>
 				</div>
 			</form>
 		</div>
