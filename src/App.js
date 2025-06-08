@@ -1,7 +1,6 @@
 import React from "react";
 import "./App.css";
 import Header from "./components/Header/Header";
-import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
 import News from "./components/News/News";
 import {Route, Routes} from "react-router-dom";
@@ -9,20 +8,17 @@ import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import Friends from "./components/Friends/Friends";
 import DialogsContainer from "./components/Dialogs/Message/DialogsContainer";
+import NavbarContainer from "./components/Navbar/NavbarContainer";
 
-const App = (props) => {
-	const state = props.store.getState();
-	const dispatch = props.store.dispatch.bind(props.store);
+const App = () => {
 	return (<div className="app-wrapper">
 		<Header/>
-		<Navbar data={state.sidebarPage}/>
-		{/*<Navbar/>*/}
+		<NavbarContainer/>
 		<div className="app-wrapper-content">
 			<Routes>
-				<Route path="/profile" element={<Profile  store={props.store} />}/>
-
-				<Route path="/dialogs" element={<DialogsContainer store={props.store} />}/>
-				<Route path="/dialogs/:id" element={<DialogsContainer store={props.store} />}/>
+				<Route path="/profile" element={<Profile/>}/>
+				<Route path="/dialogs" element={<DialogsContainer/>}/>
+				<Route path="/dialogs/:id" element={<DialogsContainer/>}/>
 				<Route path="/news" element={<News/>}/>
 				<Route path="/music" element={<Music/>}/>
 				<Route path="/settings" element={<Settings/>}/>
