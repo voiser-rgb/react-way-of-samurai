@@ -23,21 +23,48 @@ const initialState = {
 		newPostText: "",
 }
 
+// const profileReducer = (state = initialState, action) => {
+// 	const copy = [...state];
+// 	switch (action.type) {
+// 		case ADD_POST:
+// 			const newPost = {
+// 				id: randomId(),
+// 				message: state.newPostText,
+// 				img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO5NHKBic0zQv_JAq4kkUFenrAQzHqPSRUAg&s.jpg",
+// 				likes: 0,
+// 			}
+// 			state.posts.push(newPost);
+// 			state.newPostText = "";
+// 			return state;
+// 		case UPDATE_NEW_POST_TEXT:
+// 			state.newPostText = action.newText;
+// 			return state;
+// 		default:
+// 			return state;
+// 	}
+// }
+
+
 const profileReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case ADD_POST:
+			if (state.newPostText.trim() === "") return state;
 			const newPost = {
 				id: randomId(),
 				message: state.newPostText,
 				img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO5NHKBic0zQv_JAq4kkUFenrAQzHqPSRUAg&s.jpg",
 				likes: 0,
 			}
-			state.posts.push(newPost);
-			state.newPostText = "";
-			return state;
+			return {
+				...state,
+				posts: [...state.posts, newPost],
+				newPostText: "",
+			};
 		case UPDATE_NEW_POST_TEXT:
-			state.newPostText = action.newText;
-			return state;
+			return {
+				...state,
+				newPostText: action.newText
+			}
 		default:
 			return state;
 	}

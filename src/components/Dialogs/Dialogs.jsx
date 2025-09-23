@@ -24,6 +24,11 @@ const Dialogs = (props) => {
 		props.onSendMessage();
 	}
 
+	{/*TEST*/}
+	const callAlert = () => {
+		props.onAlert();
+	}
+
 	return (<div>
 		<h2 className={styles.title}>Dialogs:</h2>
 		<div className={styles.dialogs}>
@@ -44,8 +49,11 @@ const Dialogs = (props) => {
 					rows="1"
 					placeholder="Write your message...">
 				</textarea>
+
+
 				<div>
 					<button onClick={onFormSubmit}>add</button>
+					{/*<button onClick={callAlert}>call alert</button>*/}
 				</div>
 			</form>
 		</div>

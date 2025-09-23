@@ -3,7 +3,6 @@ import styles from "./MyPosts.module.css";
 import Post from './Post/Post.jsx';
 
 const MyPosts = (props) => {
-
 	const postsElem = props.posts.map(post => <Post key={post.id} id={post.id} img={post.img} message={post.message}
 													likes={post.likes}/>)
 	const onAddPost = (e) => {
@@ -15,6 +14,7 @@ const MyPosts = (props) => {
 		const text = e.target.value;
 		props.updateNewPostText(text);
 	}
+
 
 	return (<div className={styles.wrapperPosts}>
 		<h3>My posts</h3>

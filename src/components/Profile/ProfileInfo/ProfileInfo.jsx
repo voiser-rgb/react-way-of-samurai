@@ -2,7 +2,7 @@ import React from 'react';
 import styles from "./ProfileInfo.module.css";
 import img from "../../../img/TheCarinaNebula.jpg";
 
-const ProfileInfo = (props) => {
+const ProfileInfo = () => {
 	return (<div>
 		<div>
 			<figure className={styles.wrapperImg}>

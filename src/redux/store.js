@@ -54,7 +54,8 @@ let store = {
 				img: "https://avatars.akamai.steamstatic.com/a2a053943578da804dd6f677a38d6e6d1c38ac3a_medium.jpg",
 			}, {
 				id: 8, name: "Mikasa", img: "https://pp.userapi.com/c850732/v850732960/5e967/imaJzJkBFnU.jpg?ava=1.jpg",
-			},], messages: [{id: 1, text: "Hello my friends"}, {id: 2, text: "Yo"}, {id: 3, text: "Hi"}, {
+			},],
+			messages: [{id: 1, text: "Hello my friends"}, {id: 2, text: "Yo"}, {id: 3, text: "Hi"}, {
 				id: 4, text: "Hello, how are you?"
 			}, {id: 5, text: "Ooo, haven't seen you a long time!"}, {id: 6, text: "Who are you, dude?"}, {
 				id: 7, text: "Ahahaha, an interesting situation"
@@ -96,6 +97,7 @@ let store = {
 	},
 
 	//* Add, Update
+	// example: action {type: 'ADD'}
 	dispatch(action) {
 		this._state.profilePage = profileReducer(this._state.profilePage, action);
 		this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);

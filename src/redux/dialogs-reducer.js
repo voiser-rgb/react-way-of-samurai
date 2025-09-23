@@ -3,6 +3,8 @@ import {randomId} from "./store";
 const SEND_MESSAGE = 'SEND_MESSAGE';
 const UPDATE_NEW_MESSAGE_BODY = 'UPDATE_NEW_MESSAGE_BODY';
 
+//* initialState(начальное состояние) - используется при первом вызове редьюсера
+//* Чтобы state не был undefined и содержал исходные данные 
 const initialState = {
 	dialogs: [{
 		id: 1,
@@ -28,7 +30,8 @@ const initialState = {
 		img: "https://avatars.akamai.steamstatic.com/a2a053943578da804dd6f677a38d6e6d1c38ac3a_medium.jpg",
 	}, {
 		id: 8, name: "Mikasa", img: "https://pp.userapi.com/c850732/v850732960/5e967/imaJzJkBFnU.jpg?ava=1.jpg",
-	},], messages: [{id: 1, text: "Hello my friends"}, {id: 2, text: "Yo"}, {id: 3, text: "Hi"}, {
+	},],
+	messages: [{id: 1, text: "Hello my friends"}, {id: 2, text: "Yo"}, {id: 3, text: "Hi"}, {
 		id: 4, text: "Hello, how are you?"
 	}, {id: 5, text: "Ooo, haven't seen you a long time!"}, {id: 6, text: "Who are you, dude?"}, {
 		id: 7, text: "Ahahaha, an interesting situation"
@@ -38,15 +41,21 @@ const initialState = {
 const dialogsReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case SEND_MESSAGE:
+			 //* ограничиваем отправку сообщения если оно пустое и исключаем пробелы
+			if (state.newMessageText.trim() === "") return state;
 			const newMessage = {
 				id: randomId(), text: state.newMessageText,
 			}
-			state.messages.push(newMessage);
-			state.newMessageText = "";
-			return state;
+			return  {
+				...state,
+				messages: [...state.messages, newMessage],
+				newMessageText: "",
+			};
 		case UPDATE_NEW_MESSAGE_BODY:
-			state.newMessageText = action.newText;
-			return state;
+			return {
+				...state,
+				newMessageText: action.newText,
+			};
 		default:
 			return state;
 	}
