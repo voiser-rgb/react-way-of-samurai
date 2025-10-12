@@ -1,3 +1,24 @@
+ol {
+    list-style: none; /* Убираем стандартную нумерацию */
+    counter-reset: item;
+}
+
+ol li {
+    counter-increment: item;
+    position: relative;
+    padding-left: 25px; /* Отступ для текста */
+}
+
+ol li::before {
+    content: counter(item) ".";
+    position: absolute;
+    left: 0;  /* Положение номера */
+    top: 0;
+    width: 20px;
+    text-align: right;
+}
+
+
 .music {
     width: 80%;
     padding-right: 0.75rem;
@@ -7,7 +28,44 @@
 }
 
 .music__item {
+    display: flex;
+    align-items: center;
     width: 100%;
+}
+
+.music__item .wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.music__item .img {
+    margin-right: 1.5rem;
+    width: 10rem;
+    border-radius: 1rem;
+    /*overflow: hidden;*/
+}
+
+.wrapperInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wrapperText {
+    display: inline-flex;
+    align-items: center;
+    margin: 0 0 1rem 0;
+}
+
+.wrapperInfo .subtitle {
+    margin: 0 1rem 0 0;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.wrapperInfo .text {
+    margin: 0;
 }
 
 

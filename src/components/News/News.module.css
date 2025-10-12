@@ -15,3 +15,8 @@
 .article {
     margin-bottom: 3rem;
 }
+
+.img {
+    margin: 0 0 1rem 0;
+    width: 100%;
+}

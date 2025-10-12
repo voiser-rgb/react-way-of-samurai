@@ -3,6 +3,8 @@ import profileReducer from "./profile-reducer";
 import dialogsReducer from "./dialogs-reducer";
 import sidebarReducer from "./sidebar-reducer";
 import usersReducer from "./users-reducer";
+import musicReducer from "./music-reducer";
+import newsReducer from "./news-reducer";
 
 
 //* combineReducers(...) - функция из Redux, которая объединяет несколько reducer в один
@@ -11,6 +13,8 @@ const reducers = combineReducers({
 	dialogsPage: dialogsReducer,
 	sidebarPage: sidebarReducer,
 	usersPage: usersReducer,
+	musicPage: musicReducer,
+	newsPage: newsReducer,
 })
 const store = createStore(reducers);
 

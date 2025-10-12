@@ -64,6 +64,7 @@
 
 .fullName {
     grid-area: f;
+    color: #fbfafc;
 }
 
 .status {
