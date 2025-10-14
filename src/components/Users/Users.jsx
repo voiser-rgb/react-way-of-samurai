@@ -2,29 +2,23 @@ import React from "react";
 import styles from "./Users.module.css";
 import axios from "axios";
 import userPhoto from "../../assets/images/anonymous .png"
-import {useState} from "react";
+// import {useState} from "react";
 
-const Users = (props) => {
-	const getUsers = () => {
-		if (props.users.length === 0) {
-			console.log(props);
-			axios.get("https://social-network.samuraijs.com/api/1.0/users").then((response) => {
-				props.setUsers(response.data.items);
-				console.log(response.data.items);
-			})
-		}
+
+class Users extends React.Component {
+	componentDidMount() {
+		console.log('Компонент смонтирован в DOM');
+		axios.get("https://social-network.samuraijs.com/api/1.0/users").then((response) => {
+			this.props.setUsers(response.data.items);
+		})
 	}
-
-	const [count, setCount] = useState(0);
-
-	const handleClick = () => {
-		setCount(count => count + 1);
+	handleClick = () => {
+		console.log("clicked");
 	}
-
+render() {
 	return (<div className={styles.wrapper}>
-		<p>Счетчик нажиманий: {count}</p>
-		<button onClick={getUsers}>Get users</button>
-		{props.users.map((user) => <div className={styles.item} key={user.id}>
+		{/*<button onClick={this.getUsers}>Get users</button>*/}
+		{this.props.users.map((user) => <div className={styles.item} key={user.id}>
 			{/*Блок для Аватара и для кнопки Followed*/}
 			<div className={styles.userBlock}>
 				<div>
@@ -32,9 +26,9 @@ const Users = (props) => {
 						 alt="avatar"/>
 				</div>
 				{user.followed ? <button onClick={() => {
-					props.unfollow(user.id)
+					this.props.unfollow(user.id)
 				}}>unFollow</button> : <button onClick={() => {
-					props.follow(user.id)
+					this.props.follow(user.id)
 				}}>Follow</button>}
 				{/*<button>Follow</button>*/}
 			</div>
@@ -53,12 +47,10 @@ const Users = (props) => {
 			</div>
 		</div>)}
 		<div className={styles.btnWrapper}>
-			<button onClick={handleClick} className={styles.btn}>Show more</button>
+			<button onClick={this.handleClick} className={styles.btn}>Show more</button>
 		</div>
 	</div>);
 }
+}
 
-// class Users extends React.Component {
-// render()
-// }
 export default Users;

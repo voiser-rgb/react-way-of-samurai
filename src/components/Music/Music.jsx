@@ -50,8 +50,7 @@ class Music extends React.Component {
 				{/*<p>{this.props.name}:</p>*/}
 				{this.props.musicPage.music.map((song) => {
 					return (
-						<figure className={styles.music__item}>
-
+						<figure className={styles.music__item} key={song.id}>
 							<figcaption>
 								<img className={styles.img} src={song.img} alt="image"/>
 								<p>{song.album} - ({song.dateRelease})</p>
