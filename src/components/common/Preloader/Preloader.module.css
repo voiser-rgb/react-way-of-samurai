@@ -1,0 +1,16 @@
+.wrapperPreloader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.imgPreloader {
+    padding-top: 5rem;
+    width: 50%;
+    height: 50%;
+}
+
+
+
