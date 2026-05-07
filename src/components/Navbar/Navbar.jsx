@@ -12,16 +12,16 @@ const Navbar = (props) => {
 	return <nav className={styles.nav}>
 		<div className={styles.item}><NavLink className={setActive} to="/profile">Profile</NavLink></div>
 		<div className={styles.item}><NavLink className={setActive} to="/dialogs">Messages</NavLink></div>
+		<div className={styles.item}><NavLink className={setActive} to="/users">Users</NavLink></div>
 		<div className={styles.item}><NavLink className={setActive} to="/news">News</NavLink></div>
 		<div className={styles.item}><NavLink className={setActive} to="/music">Music</NavLink></div>
+		<div className={styles.item}><NavLink className={setActive} to="/todo">Task list</NavLink></div>
 		<div className={styles.item}><NavLink className={setActive} to="/settings">Settings</NavLink></div>
-		<div className={styles.item}><NavLink className={setActive} to="/users">Users</NavLink></div>
-			<div className={styles.item}><NavLink className={setActive} to="/friends">Friends:</NavLink>
-				<ul className={styles.list}>
-					{friend}
-				</ul>
-			</div>
-
+		<div className={styles.item}><NavLink className={setActive} to="/friends">Friends:</NavLink>
+			<ul className={styles.list}>
+				{friend}
+			</ul>
+		</div>
 	</nav>
 }
 

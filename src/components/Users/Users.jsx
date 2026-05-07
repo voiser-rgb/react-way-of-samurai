@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Users.module.css";
 import userPhoto from "../../assets/images/anonymous .png"
+import {NavLink} from "react-router-dom";
 
 const Users = (props) => {
 	const pageCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -47,14 +48,14 @@ const Users = (props) => {
 			{/*Блок для Аватара и для кнопки Followed*/}
 			<div className={styles.userWrapper}>
 				<div>
-					<img className={styles.photo} src={user.photos.small != null ? user.photos.small : userPhoto}
-						 alt="avatar"/>
+					<NavLink to={'/profile/' + user.id}>
+						<img className={styles.photo} src={user.photos.small != null ? user.photos.small : userPhoto}
+							 alt="avatar"/>
+					</NavLink>
 				</div>
-				{user.followed ? <button onClick={() => {
-					props.unfollow(user.id)
-				}}>unFollow</button> : <button onClick={() => {
-					props.follow(user.id)
-				}}>Follow</button>}
+				{user.followed ?
+					<button onClick={() => {props.unfollow(user.id)}}>unFollow</button> :
+					<button onClick={() => {props.follow(user.id)}}>Follow</button>}
 				{/*<button>Follow</button>*/}
 			</div>
 			{/*Блок для имени, статуса, страны и города*/}

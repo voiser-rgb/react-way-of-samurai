@@ -4,9 +4,9 @@ import ProfileInfo from "./ProfileInfo/ProfileInfo.jsx";
 import MyPostsContainer from "./MyPosts/Post/MyPostsContainer";
 
 
-const Profile = () => {
+const Profile = (props) => {
 	return <div className={styles.content}>
-		<ProfileInfo/>
+		<ProfileInfo profile={props.profile} />
 		<MyPostsContainer />
 	</div>
 }

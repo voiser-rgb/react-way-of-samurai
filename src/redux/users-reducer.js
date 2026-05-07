@@ -21,24 +21,20 @@ const usersReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case FOLLOW:
 			return {
-				...state, users: state.users.map((user) => {
-					if (user.id === action.userId) {
-						return {...user, followed: true}
-					}
-					return user;
-				}),
-			};
+				...state,
+				users: state.users.map((user) =>
+					user.id === action.userId ?
+						{...user, followed: true}
+						: user),
+			}
 		case UNFOLLOW:
 			return {
 				...state,
-				users: state.users.map((user) => {
-					if (user.id === action.userId) {
-						return {...user, followed: false}
-					}
-					return user;
-				}),
-
-			};
+				users: state.users.map(user =>
+					user.id === action.userId ?
+						{...user, followed: false} :
+						user),
+			}
 		case SET_USERS:
 			return {
 				...state, users: [...action.users],

@@ -15,7 +15,6 @@ const MyPosts = (props) => {
 		props.updateNewPostText(text);
 	}
 
-
 	return (<div className={styles.wrapperPosts}>
 		<h3>My posts</h3>
 		<form className={styles.formChat}>

@@ -37,7 +37,6 @@ const initialState = {
 		id: 7, text: "Ahahaha, an interesting situation"
 	}, {id: 8, text: "Well, we're glad you're back"},], newMessageText: "",
 }
-
 const dialogsReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case SEND_MESSAGE:
@@ -60,8 +59,6 @@ const dialogsReducer = (state = initialState, action) => {
 			return state;
 	}
 }
-
-
 
 export const sendMessageCreator = () => ({type: SEND_MESSAGE});
 export const updateNewMessageBodyCreator = ( text) => ({type: UPDATE_NEW_MESSAGE_BODY, newText: text});

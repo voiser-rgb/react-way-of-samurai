@@ -5,6 +5,7 @@ import sidebarReducer from "./sidebar-reducer";
 import usersReducer from "./users-reducer";
 import musicReducer from "./music-reducer";
 import newsReducer from "./news-reducer";
+import todoReducer from "./todo-reducer";
 
 
 //* combineReducers(...) - функция из Redux, которая объединяет несколько reducer в один
@@ -15,6 +16,7 @@ const reducers = combineReducers({
 	usersPage: usersReducer,
 	musicPage: musicReducer,
 	newsPage: newsReducer,
+	todoPage: todoReducer,
 })
 const store = createStore(reducers);
 

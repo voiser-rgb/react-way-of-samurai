@@ -1,8 +1,17 @@
 import React from 'react';
 import styles from "./ProfileInfo.module.css";
 import img from "../../../img/TheCarinaNebula.jpg";
+import Preloader from "../../common/Preloader/Preloader";
 
-const ProfileInfo = () => {
+const ProfileInfo = (props) => {
+	if(!props.profile){
+		return <Preloader />
+	}
+
+	const contacts = Object.values(props.profile.contacts);
+	const setActive = props.profile.lookingForAJob ? styles.statusGreen : styles.statusRed;
+
+	
 	return (<div>
 		<div>
 			<figure className={styles.wrapperImg}>
@@ -14,9 +23,35 @@ const ProfileInfo = () => {
 				</figcaption>
 			</figure>
 		</div>
-		<div className={styles.description}>
-			ava + description
-		</div>
+		<article className={styles.userCard}>
+			<figure className={styles.wrapper}>
+				<img className={styles.avatar} src={props.profile.photos.large} alt="img"/>
+				<div className={styles.wrapperStatus}>
+					<span className={`${styles.statusDot} ${setActive}`}></span>
+					<p className={styles.status}>{props.profile.lookingForAJob ? "I'm  looking for a job" : "I'm not looking for a job"}</p>
+				</div>
+			</figure>
+
+			<div className={styles.content}>
+
+				<header className={styles.header}>
+					<h2 className={styles.name}>{props.profile.fullName}</h2>
+				</header>
+
+				<section className={styles.about}>
+					<p>About me: {props.profile.aboutMe}</p>
+					<p>Description: {props.profile.lookingForAJobDescription}</p>
+				</section>
+
+				<footer className={styles.links}>
+					<ul>
+						{contacts.map((contact) => (
+							<li>{contact}</li>
+						))}
+					</ul>
+				</footer>
+			</div>
+		</article>
 	</div>);
 }
 

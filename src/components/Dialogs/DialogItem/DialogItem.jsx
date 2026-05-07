@@ -9,7 +9,7 @@ const DialogItem = (dialog) => {
 	const name = dialog.name;
 	const img = dialog.img;
 	return (<li id={id} className={styles.item}>
-		<NavLink to={`/dialogs/${id}`} className={setActive}>
+		<NavLink to={`/dialogs/${id}`} end className={setActive}>
 			<img className={styles.avatar}
 				 src={img}
 				 alt="avatar"/>

@@ -10,7 +10,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		// onAlert: () => {alert("TEST")},
 		onSendMessage: () => {
 			dispatch(sendMessageCreator());
 		}, onMessageChange: (message) => {
@@ -21,5 +20,4 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
-
 export default DialogsContainer;

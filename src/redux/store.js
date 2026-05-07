@@ -1,12 +1,10 @@
 import profileReducer from "./profile-reducer";
 import dialogsReducer from "./dialogs-reducer";
 import sidebarReducer from "./sidebar-reducer";
-
 let store = {
 	_callSubscriber() {
 		console.log("Not subscribe!");
 	},
-
 	//* Данные
 	_state: {
 		profilePage: {
@@ -25,8 +23,7 @@ let store = {
 				message: "How are you dude?",
 				img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO5NHKBic0zQv_JAq4kkUFenrAQzHqPSRUAg&s.jpg",
 				likes: 20
-			},],
-			newPostText: "",
+			},], newPostText: "",
 		},
 
 		dialogsPage: {
@@ -54,8 +51,7 @@ let store = {
 				img: "https://avatars.akamai.steamstatic.com/a2a053943578da804dd6f677a38d6e6d1c38ac3a_medium.jpg",
 			}, {
 				id: 8, name: "Mikasa", img: "https://pp.userapi.com/c850732/v850732960/5e967/imaJzJkBFnU.jpg?ava=1.jpg",
-			},],
-			messages: [{id: 1, text: "Hello my friends"}, {id: 2, text: "Yo"}, {id: 3, text: "Hi"}, {
+			},], messages: [{id: 1, text: "Hello my friends"}, {id: 2, text: "Yo"}, {id: 3, text: "Hi"}, {
 				id: 4, text: "Hello, how are you?"
 			}, {id: 5, text: "Ooo, haven't seen you a long time!"}, {id: 6, text: "Who are you, dude?"}, {
 				id: 7, text: "Ahahaha, an interesting situation"
@@ -77,14 +73,13 @@ let store = {
 				avatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTO5pisyDSGhZGdYcVd1gYVZ4ZrKdlIAwgk2A&s"
 			},],
 		}
-	},
-	//* Получить данные из state.
+	}, //* Получить данные из state.
 	getState() {
 		return this._state;
 	},
 
 	//* Генерация случайного ID для новых постов.
-	_randomId ()  {
+	_randomId() {
 		const array = new Uint32Array(4);
 		crypto.getRandomValues(array);
 		return array.join('');
@@ -105,12 +100,10 @@ let store = {
 		this._callSubscriber();
 	}
 }
-
-export let randomId =  () => {
+export let randomId = () => {
 	const array = new Uint32Array(4);
 	crypto.getRandomValues(array);
 	return array.join('');
 };
-
 export default store;
 window.store = store;

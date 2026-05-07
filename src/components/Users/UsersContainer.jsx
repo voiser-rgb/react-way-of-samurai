@@ -68,7 +68,7 @@ const mapStateToProps = (state) => {
 
 
 
-
+//* Возвращаем функции которые отвечают за действие
 const MyUsersContainer = connect(mapStateToProps, {
 	follow,
 	unfollow,
