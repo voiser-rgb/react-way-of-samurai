@@ -28,7 +28,8 @@
     margin-right: 0.5rem;
     height: 50px;
     width: 50px;
-    border-radius: 50%;
+    /*border-radius: 50%;*/
+    border-radius: 25px;
     object-fit: cover;
 }
 
@@ -39,5 +40,6 @@
             0 2px 4px rgba(0, 0, 0, 0.2),
             0 8px 16px rgba(0, 0, 0, 0.2);
 }
+
 
 

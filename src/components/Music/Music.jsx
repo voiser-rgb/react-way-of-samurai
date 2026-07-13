@@ -43,12 +43,15 @@ import {useState} from 'react';
 import styles from "./Music.module.css";
 
 class Music extends React.Component {
+
 	render() {
+		console.log(this.props);
 		return (<section className={styles.music}>
 			<ol>
 				<h2 className={styles.title}>Music:</h2>
 				{/*<p>{this.props.name}:</p>*/}
-				{this.props.musicPage.music.map((song) => {
+
+				{this.props.musicPage.music.warhammer40k.map((song) => {
 					return (
 						<figure className={styles.music__item} key={song.id}>
 							<figcaption>

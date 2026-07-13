@@ -11,7 +11,7 @@ const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 //* Чтобы state не был undefined и содержал исходные данные
 const initialState = {
 	users: [],
-	pageSize: 10,
+	pageSize: 5,
 	totalUsersCount: 0,
 	currentPage: 1,
 	isFetching: false,

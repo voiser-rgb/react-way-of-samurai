@@ -8,10 +8,9 @@ const ProfileInfo = (props) => {
 		return <Preloader />
 	}
 
-	const contacts = Object.values(props.profile.contacts);
+	const contacts = Object.entries(props.profile.contacts);
 	const setActive = props.profile.lookingForAJob ? styles.statusGreen : styles.statusRed;
 
-	
 	return (<div>
 		<div>
 			<figure className={styles.wrapperImg}>
@@ -44,9 +43,11 @@ const ProfileInfo = (props) => {
 				</section>
 
 				<footer className={styles.links}>
-					<ul>
-						{contacts.map((contact) => (
-							<li>{contact}</li>
+					<ul className={styles.contacts}>
+						{contacts.map(([name, value]) => (
+							value ? <li key={value}>
+								<h3 className={styles.subtitle}>{name}: </h3> {value}
+							</li> : null
 						))}
 					</ul>
 				</footer>

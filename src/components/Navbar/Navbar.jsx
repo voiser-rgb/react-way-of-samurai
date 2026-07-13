@@ -16,6 +16,7 @@ const Navbar = (props) => {
 		<div className={styles.item}><NavLink className={setActive} to="/news">News</NavLink></div>
 		<div className={styles.item}><NavLink className={setActive} to="/music">Music</NavLink></div>
 		<div className={styles.item}><NavLink className={setActive} to="/todo">Task list</NavLink></div>
+		<div className={styles.item}><NavLink className={setActive} to="/pomodoro">Pomodoro Timer</NavLink></div>
 		<div className={styles.item}><NavLink className={setActive} to="/settings">Settings</NavLink></div>
 		<div className={styles.item}><NavLink className={setActive} to="/friends">Friends:</NavLink>
 			<ul className={styles.list}>

@@ -19,12 +19,14 @@
 
 
 .formChat textarea {
- margin-bottom: 0.5rem;
- padding: 0.5rem;
- background-color: #2F343A;
- border: 1px solid #2F343A;
- border-radius: 4px;
- resize: vertical;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    height: 10rem;
+    width: 95%;
+    background-color: #2F343A;
+    border: 1px solid #2F343A;
+    border-radius: 4px;
+    resize: none;
 }
 
 

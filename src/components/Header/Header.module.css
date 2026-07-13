@@ -1,13 +1,29 @@
 .header {
     grid-area: h;
     /*background: radial-gradient(circle, #000080, #000000);*/
-    background: linear-gradient(45deg, black, transparent);
+    /*background: linear-gradient(45deg, black, transparent);*/
+    background: var(--bg-panel);
     /*border-top: 2px solid darkgoldenrod;*/
     /*border-bottom: 2px solid darkgoldenrod; */
-    border-top:  2px solid #4682B4;
-    border-bottom:  2px solid #4682B4;
+    border-top:  2px solid var(--amber);
+    border-bottom:  2px solid var(--amber);
     border-radius: 1.5rem;
   }
   .header img {
     width: 10rem;
   }
+
+  /*.wrapper {*/
+  /*    display: flex;*/
+  /*    justify-content: space-between;*/
+  /*}*/
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrapper:active {
+    gap: 25px;
+}

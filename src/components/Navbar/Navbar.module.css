@@ -2,8 +2,8 @@
     grid-area: n;
     /*background: linear-gradient(to bottom, #000080, #4682B4);*/
     padding: 0 0.4rem 0 0;
-    background-color: #2F343A;
-    border-right: 2px solid #4682B4;
+    background-color: var(--bg-panel);
+    border-right: 2px solid var(--amber-bright);
     border-radius: 0.7rem;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
@@ -11,7 +11,7 @@
 .item a {
     display: block;
     padding: 1rem;
-    color: #66CCFF;
+    color: var(--amber);
     text-shadow: 3px 3px 3px black; /* Тень текста */
     text-transform: uppercase;
 }

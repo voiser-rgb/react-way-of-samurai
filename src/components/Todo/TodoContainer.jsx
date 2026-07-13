@@ -1,7 +1,11 @@
 import React from "react";
-import {addTaskAC, completeTaskAC, deleteTaskAC, upNewTodoTextAC} from "../../redux/todo-reducer";
+import {addTask, onCompleteTask, onDeleteTask, upNewTodoText} from "../../redux/todo-reducer";
 import Todo from "./Todo";
 import {connect} from "react-redux";
+
+
+// http://localhost:3000/todos
+// https://social-network.samuraijs.com/api/1.0/users
 
 
 // const TodoContainer = (props) => {
@@ -37,22 +41,40 @@ import {connect} from "react-redux";
 // }
 //
 
+
+fetch('https://social-network.samuraijs.com/api/1.0/users')
+	.then(res => {
+		return res.json()
+	})
+	.then((json) => {return json.items})
+	.then((items) => {
+		items.map((item) => {
+
+		})
+	})
 const mapStateToProps = (state) => {
 	return {
 	todoPage: state.todoPage,
 	}
 }
-const mapDispatchToProps = (dispatch) => {
-	return {
-		addTask: () => dispatch(addTaskAC()),
-		upNewTodoText: text => dispatch(upNewTodoTextAC(text)),
-		onDeleteTask: id => dispatch(deleteTaskAC(id)),
-		onCompleteTask: id => dispatch(completeTaskAC(id)),
-	}
-}
+
+
+// const mapDispatchToProps = (dispatch) => {
+// 	return {
+// 		addTask: () => dispatch(addTaskAC()),
+// 		upNewTodoText: text => dispatch(upNewTodoTextAC(text)),
+// 		onDeleteTask: id => dispatch(deleteTaskAC(id)),
+// 		onCompleteTask: id => dispatch(completeTaskAC(id)),
+// 	}
+// }
 
 
 
-const TodoContainer = connect(mapStateToProps,mapDispatchToProps) (Todo)
+const TodoContainer = connect(mapStateToProps, {
+	addTask,
+	upNewTodoText,
+	onDeleteTask,
+	onCompleteTask
+}) (Todo)
 
 export default TodoContainer;

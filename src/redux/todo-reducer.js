@@ -51,11 +51,11 @@ const todoReducer = (state = initialState, action) => {
 	}
 }
 
-export const addTaskAC = () => ({type: ADD_TASK})
-export const upNewTodoTextAC = (text) => ({type: UPDATE_NEW_TODO_TEXT, text})
+export const addTask = () => ({type: ADD_TASK})
+export const upNewTodoText = (text) => ({type: UPDATE_NEW_TODO_TEXT, text})
 
-export const deleteTaskAC = (id) => ({type: DELETE_TASK, id})
-export const completeTaskAC = (id) => ({type: COMPLETE_TASK, id})
+export const onDeleteTask = (id) => ({type: DELETE_TASK, id})
+export const onCompleteTask = (id) => ({type: COMPLETE_TASK, id})
 
 
 export default todoReducer;

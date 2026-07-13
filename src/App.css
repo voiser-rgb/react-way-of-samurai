@@ -1,140 +1,655 @@
-@font-face {
-    font-family: 'PressStart2P-Regular';
-    src: local('PressStart2P-Regular');
-    src: url(fonts/PressStart2P/PressStart2P-Regular.woff) format('woff'),
-    url(fonts/PressStart2P/PressStart2P-Regular.woff2) format('woff2');
+/*!*@font-face {*!*/
+/*!*    font-family: 'PressStart2P-Regular';*!*/
+/*!*    src: local('PressStart2P-Regular');*!*/
+/*!*    src: url(fonts/PressStart2P/PressStart2P-Regular.woff) format('woff'),*!*/
+/*!*    url(fonts/PressStart2P/PressStart2P-Regular.woff2) format('woff2');*!*/
+/*!*}*!*/
+
+/*!*@font-face {*!*/
+/*!*    font-family: 'Outerorbit-rggRL';*!*/
+/*!*    src: local('Outerorbit-rggRL');*!*/
+/*!*    src: url(fonts/Outerorbit/Outerorbit-rggRL.woff) format('woff'),*!*/
+/*!*    url(fonts/Outerorbit/Outerorbit-rggRL.woff2) format('woff2');*!*/
+/*!*}*!*/
+
+/*!*@font-face {*!*/
+/*!*    font-family: 'Righteous-Regular';*!*/
+/*!*    src: local('Righteous-Regular');*!*/
+/*!*    src: url(fonts/Righteous/Righteous-Regular.woff) format('woff'),*!*/
+/*!*    url(fonts/Righteous/Righteous-Regular.woff2) format('woff2');*!*/
+/*!*}*!*/
+
+/*!*@font-face {*!*/
+/*!*    font-family: 'Exo-Italic-VariableFont_wght';*!*/
+/*!*    src: local('Exo-Italic-VariableFont_wght');*!*/
+/*!*    src: url(fonts/Exo/Exo-Italic-VariableFont_wght.woff) format('woff'),*!*/
+/*!*    url(fonts/Exo/Exo-Italic-VariableFont_wght.woff2) format('woff2');*!*/
+/*!*}*!*/
+
+
+/*:root {*/
+/*    --bg: #050505;*/
+
+/*    --panel: rgba(8, 8, 8, 0.94);*/
+
+/*    --amber: #ffb347;*/
+/*    --amber-bright: #ffd280;*/
+/*    --amber-soft: rgba(255,179,71,.2);*/
+
+/*    --text: #d8b87a;*/
+
+/*    --border: rgba(255,179,71,.15);*/
+
+/*    --danger: #d95c42;*/
+
+/*    --bg-panel: #ffb34712;*/
+/*}*/
+/*!*html, body {*!*/
+/*!*    !*background: linear-gradient(to right, black, #05057d, #2b05a7, #9a0612) !important;*!*!*/
+/*!*    !*font-family: "PressStart2P-Regular", system-ui;*!*!*/
+/*!*    !*font-weight: 200;*!*!*/
+/*!*    !*font-style: normal;*!*!*/
+/*!*    !*font-family: "Righteous-Regular", sans-serif;*!*!*/
+/*!*    !*font-weight: 400;*!*!*/
+/*!*    !*font-style: normal;*!*!*/
+/*!*    font-family: "Exo-Italic-VariableFont_wght", sans-serif;*!*/
+/*!*    font-weight: 600;*!*/
+/*!*    color: #99a2ab;*!*/
+/*!*    background-image: url('img/galaxy.jpg');*!*/
+/*!*    background-size: cover;*!*/
+/*!*    background-repeat: no-repeat;*!*/
+/*!*}*!*/
+
+/*!*h2 {*!*/
+
+/*!*    text-align: center;*!*/
+/*!*    color: rgba(254, 218, 74, 0.87);*!*/
+/*!*    !*color: #66CCFF; !* Голубовато-синий цвет *!*!*!*/
+/*!*    text-shadow: 3px 3px 3px black; !* Тень текста *!*!*/
+/*!*    font-size: 3rem;*!*/
+/*!*    font-family: 'Righteous-Regular', cursive;*!*/
+/*!*    font-weight: 800;*!*/
+/*!*}*!*/
+
+/*!*h3 {*!*/
+/*!*    color: rgba(5, 224, 217, 0.76);*!*/
+/*!*}*!*/
+
+/*!*a {*!*/
+/*!*    text-decoration: none;*!*/
+/*!*}*!*/
+
+/*!*ul {*!*/
+/*!*    list-style: none;*!*/
+/*!*}*!*/
+
+
+/*.app-wrapper {*/
+/*    margin: 0 auto;*/
+/*    display: grid;*/
+/*    width: 80%;*/
+/*    grid-template-areas:*/
+/*  "h h"*/
+/*  "n c";*/
+/*    grid-template-rows: 10rem 1fr;*/
+/*    grid-template-columns: 2fr 10fr;*/
+/*}*/
+
+
+/*.app-wrapper-content {*/
+/*    grid-area: c;*/
+/*    !*background-color: #3498db;*!*/
+/*    background: linear-gradient(45deg, #183462, transparent);*/
+/*    border-bottom: 2px solid #4682B4;*/
+/*    border-radius: 0.7rem;*/
+/*    !*!*background: linear-gradient(45deg, #1C1F26, #8E44AD, transparent);*! фиолетовый*!*/
+/*    !*background: linear-gradient(45deg, #2D383A, #8A8A8A, transparent); серый*!*/
+/*    !*background: linear-gradient(to right, #212529, #1C1F26);*!*/
+/*}*/
+
+
+/*!*textarea {*!*/
+/*!*    margin-bottom: 0.5rem;*!*/
+/*!*    padding: 0.5rem;*!*/
+/*!*    width: 100%;*!*/
+/*!*    background-color: #2F343A;*!*/
+/*!*    border: 2px solid #2F343A;*!*/
+/*!*    border-left: 2px  solid #4682B4;*!*/
+/*!*    border-radius: 0.7rem;*!*/
+/*!*    color: white;*!*/
+/*!*    outline: none;*!*/
+/*!*    box-sizing: border-box;*!*/
+/*!*    resize: none; !* Чтобы пользователь мог менять высоту, но не ширину *!*!*/
+/*!*}*!*/
+
+
+/*!*button {*!*/
+/*!*    background: linear-gradient(45deg, #183462, #2D383A);*!*/
+/*!*    border: 2px solid #4682B4;*!*/
+/*!*    border-radius: 0.7rem;*!*/
+/*!*    color: #99a2ab;*!*/
+/*!*    font-family: "Exo-Italic-VariableFont_wght", sans-serif;*!*/
+/*!*    font-weight: 600;*!*/
+/*!*    padding: 0.75rem 1.5rem;*!*/
+/*!*    cursor: pointer;*!*/
+/*!*    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;*!*/
+/*!*    box-shadow: 0 4px 6px rgba(24, 52, 98, 0.5);*!*/
+/*!*}*!*/
+
+/*!*button:hover*!*/
+/*!* {*!*/
+/*!*    background: linear-gradient(45deg, #142b51, #1e2526);*!*/
+/*!*    border-color: #008b8d; !* цвет из заголовка h2 *!*!*/
+/*!*    color: rgb(0, 139, 141);*!*/
+/*!*    outline: none;*!*/
+/*!*    !*box-shadow: 0 5px 5px rgb(0, 139, 141);*!*!*/
+/*!*    box-shadow: 3px 3px 3px rgb(0, 139, 141);*!*/
+/*!*}*!*/
+
+/*!*button:active {*!*/
+/*!*    background: linear-gradient(45deg, #102340, #080a0a);*!*/
+/*!*    border-color: #4682B4;*!*/
+/*!*    color: #99a2ab;*!*/
+/*!*    box-shadow: inset 0 3px 5px rgba(24, 52, 98, 0.7);*!*/
+/*!*}*!*/
+
+
+/*!* test *!*/
+/*:root {*/
+/*    --bg: #050505;*/
+/*    --panel: rgba(8, 8, 8, 0.94);*/
+
+/*    --amber: #ffb347;*/
+/*    --amber-bright: #ffd280;*/
+/*    --amber-soft: rgba(255,179,71,.2);*/
+
+/*    --text: #d8b87a;*/
+/*    --border: rgba(255,179,71,.15);*/
+
+/*    --danger: #d95c42;*/
+/*    --bg-panel: #ffb34712;*/
+/*}*/
+
+/*!* CRT effects *!*/
+/*@keyframes flicker {*/
+/*    0% { opacity: 0.98; }*/
+/*    50% { opacity: 1; }*/
+/*    100% { opacity: 0.97; }*/
+/*}*/
+
+/*@keyframes shake {*/
+/*    0% { transform: translate(0, 0); }*/
+/*    50% { transform: translate(0.3px, -0.3px); }*/
+/*    100% { transform: translate(0, 0); }*/
+/*}*/
+
+/*@keyframes blink {*/
+/*    50% { opacity: 0; }*/
+/*}*/
+
+/*!* Base CRT terminal *!*/
+/*.terminal {*/
+/*    background: #000;*/
+/*    color: var(--text);*/
+/*    font-family: monospace;*/
+/*    padding: 20px;*/
+
+/*    text-shadow:*/
+/*            1px 0 red,*/
+/*            -1px 0 cyan,*/
+/*            0 0 10px var(--text);*/
+
+/*    letter-spacing: 1px;*/
+
+/*    animation: flicker 0.12s infinite, shake 0.2s infinite;*/
+/*}*/
+
+/*!* Cursor *!*/
+/*.cursor {*/
+/*    display: inline-block;*/
+/*    width: 10px;*/
+/*    height: 18px;*/
+/*    background: #00ff66;*/
+/*    margin-left: 2px;*/
+
+/*    animation: blink 1s step-start infinite;*/
+/*}*/
+
+/*!* Background + CRT scanlines *!*/
+/*html, body {*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+
+/*    background:*/
+/*            linear-gradient(rgba(0,0,0,.88), rgba(0,0,0,.88)),*/
+/*            url('img/galaxy.jpg');*/
+
+/*    background-size: cover;*/
+/*    background-attachment: fixed;*/
+
+/*    color: var(--text);*/
+/*    font-family: 'IBM Plex Mono', monospace;*/
+/*}*/
+
+/*body::after {*/
+/*    content: "";*/
+/*    position: fixed;*/
+/*    inset: 0;*/
+/*    pointer-events: none;*/
+
+/*    background: repeating-linear-gradient(*/
+/*            transparent 0px,*/
+/*            rgba(255,179,71,.03) 1px,*/
+/*            transparent 2px*/
+/*    );*/
+
+/*    opacity: .3;*/
+/*    z-index: 999;*/
+/*}*/
+
+/*!* Layout (НЕ ТРОГАЕМ) *!*/
+/*.app-wrapper {*/
+/*    margin: 0 auto;*/
+/*    display: grid;*/
+/*    width: 80%;*/
+
+/*    grid-template-areas:*/
+/*        "h h"*/
+/*        "n c";*/
+
+/*    grid-template-rows: 10rem 1fr;*/
+/*    grid-template-columns: 2fr 10fr;*/
+/*}*/
+
+/*!* Panels *!*/
+/*.app-wrapper-content,*/
+/*.nav {*/
+/*    background: var(--panel);*/
+/*    border: 1px solid var(--border);*/
+
+/*    box-shadow:*/
+/*            inset 0 0 20px rgba(255,179,71,.05),*/
+/*            0 0 20px rgba(0,0,0,.9);*/
+
+/*    padding: 20px;*/
+/*}*/
+
+/*!* Headings *!*/
+/*h2 {*/
+/*    text-align: center;*/
+/*    color: var(--amber);*/
+
+/*    text-transform: uppercase;*/
+/*    letter-spacing: 8px;*/
+/*    font-size: 2.5rem;*/
+
+/*    text-shadow: 0 0 10px rgba(255,179,71,.4);*/
+
+/*    font-family: 'Orbitron', sans-serif;*/
+/*}*/
+
+/*h2::before {*/
+/*    content: ">> ";*/
+/*    color: var(--amber-bright);*/
+/*}*/
+
+/*!* Navigation *!*/
+/*.item a {*/
+/*    display: block;*/
+/*    padding: 14px;*/
+
+/*    color: #9f8660;*/
+/*    text-transform: uppercase;*/
+
+/*    border-left: 2px solid transparent;*/
+/*    transition: .2s;*/
+/*}*/
+
+/*.item a:hover {*/
+/*    color: var(--amber-bright);*/
+/*    background: rgba(255,179,71,.05);*/
+/*    border-left: 2px solid var(--amber);*/
+/*}*/
+
+
+/*.active {*/
+/*    color: var(--amber-bright);*/
+/*    background: rgba(255,179,71,.08);*/
+/*    border-left: 3px solid var(--amber);*/
+/*}*/
+
+/*!* Inputs *!*/
+/*button {*/
+/*    background: #101010;*/
+/*    color: var(--amber);*/
+
+/*    border: 1px solid #4b3a20;*/
+
+/*    font-family: 'IBM Plex Mono', monospace;*/
+/*    text-transform: uppercase;*/
+/*    letter-spacing: 3px;*/
+
+/*    transition: .2s;*/
+/*}*/
+
+/*button:hover {*/
+/*    color: var(--amber-bright);*/
+/*    border-color: var(--amber);*/
+
+/*    box-shadow: 0 0 12px rgba(255,179,71,.25);*/
+/*}*/
+
+/*input,*/
+/*textarea {*/
+/*    background: #0a0a0a;*/
+/*    border: 1px solid #40311d;*/
+
+/*    color: var(--amber);*/
+/*    font-family: 'IBM Plex Mono', monospace;*/
+
+/*    outline: none;*/
+/*}*/
+
+/*input:focus,*/
+/*textarea:focus {*/
+/*    border-color: var(--amber);*/
+/*    box-shadow: 0 0 10px rgba(255,179,71,.15);*/
+/*}*/
+
+
+/*a {*/
+/*    color: #9f8660;*/
+/*    text-decoration: none;*/
+/*    transition: .15s ease;*/
+
+/*    position: relative;*/
+
+/*    text-shadow:*/
+/*            0 0 6px rgba(255,179,71,.15),*/
+/*            1px 0 rgba(255,0,0,.15),*/
+/*            -1px 0 rgba(0,255,255,.12);*/
+/*}*/
+
+/*!* лёгкий "glitch hover" *!*/
+/*a:hover {*/
+/*    color: var(--amber-bright);*/
+
+/*    text-shadow:*/
+/*            1px 0 rgba(255,0,0,.35),*/
+/*            -1px 0 rgba(0,255,255,.25),*/
+/*            0 0 12px rgba(255,179,71,.35);*/
+
+/*    transform: translateX(0.5px);*/
+/*}*/
+
+/*!* псевдо-CRT "дрожание" *!*/
+/*a:hover::after {*/
+/*    content: attr(href);*/
+/*    position: absolute;*/
+/*    left: 0;*/
+/*    top: 0;*/
+
+/*    color: rgba(255,179,71,.25);*/
+/*    clip-path: inset(0 0 50% 0);*/
+
+/*    transform: translateX(1px);*/
+/*    pointer-events: none;*/
+/*}*/
+
+/*!* активное нажатие *!*/
+/*a:active {*/
+/*    color: var(--amber);*/
+/*    transform: translateX(0);*/
+/*    text-shadow: 0 0 8px rgba(255,179,71,.25);*/
+/*}*/
+
+
+
+:root {
+    --bg: #050505;
+    --panel: rgba(8, 8, 8, 0.94);
+
+    --amber: #ffb347;
+    --amber-bright: #ffd280;
+    --amber-soft: rgba(255,179,71,.2);
+    --text: #d8b87a;
+    --border: rgba(255,179,71,.15);
+
+    --danger: #d95c42;
+    --bg-panel: rgba(207, 121, 118, 0.02);
 }
 
-@font-face {
-    font-family: 'Outerorbit-rggRL';
-    src: local('Outerorbit-rggRL');
-    src: url(fonts/Outerorbit/Outerorbit-rggRL.woff) format('woff'),
-    url(fonts/Outerorbit/Outerorbit-rggRL.woff2) format('woff2');
+/* CRT effects */
+@keyframes flicker {
+    0% { opacity: 0.98; }
+    50% { opacity: 1; }
+    100% { opacity: 0.97; }
 }
 
-@font-face {
-    font-family: 'Righteous-Regular';
-    src: local('Righteous-Regular');
-    src: url(fonts/Righteous/Righteous-Regular.woff) format('woff'),
-    url(fonts/Righteous/Righteous-Regular.woff2) format('woff2');
+@keyframes shake {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(0.3px, -0.3px); }
+    100% { transform: translate(0, 0); }
 }
 
-@font-face {
-    font-family: 'Exo-Italic-VariableFont_wght';
-    src: local('Exo-Italic-VariableFont_wght');
-    src: url(fonts/Exo/Exo-Italic-VariableFont_wght.woff) format('woff'),
-    url(fonts/Exo/Exo-Italic-VariableFont_wght.woff2) format('woff2');
+@keyframes blink {
+    50% { opacity: 0; }
 }
 
+/* CRT terminal */
+.terminal {
+    color: var(--text);
+    font-family: monospace;
+    padding: 20px;
 
+    text-shadow:
+            1px 0 red,
+            -1px 0 cyan,
+            0 0 10px var(--text);
+
+    letter-spacing: 1px;
+
+    animation: flicker 0.12s infinite, shake 0.2s infinite;
+}
+
+/* cursor */
+.cursor {
+    display: inline-block;
+    width: 10px;
+    height: 18px;
+    background: #00ff66;
+    margin-left: 2px;
+
+    animation: blink 1s step-start infinite;
+}
+
+/* background CRT */
 html, body {
-    /*background: linear-gradient(to right, black, #05057d, #2b05a7, #9a0612) !important;*/
-    /*font-family: "PressStart2P-Regular", system-ui;*/
-    /*font-weight: 200;*/
-    /*font-style: normal;*/
-    /*font-family: "Righteous-Regular", sans-serif;*/
-    /*font-weight: 400;*/
-    /*font-style: normal;*/
-    font-family: "Exo-Italic-VariableFont_wght", sans-serif;
-    font-weight: 600;
-    color: #99a2ab;
-    background-image: url('img/galaxy.jpg');
+    margin: 0;
+    padding: 0;
+
+    background:
+            linear-gradient(rgba(0,0,0,.88), rgba(0,0,0,.88)),
+            url('img/galaxy.jpg');
+
     background-size: cover;
-    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    color: var(--text);
+    font-family: 'IBM Plex Mono', monospace;
 }
 
-h2 {
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
 
-    text-align: center;
-    color: rgba(254, 218, 74, 0.87);
-    /*color: #66CCFF; !* Голубовато-синий цвет *!*/
-    text-shadow: 3px 3px 3px black; /* Тень текста */
-    font-size: 3rem;
-    font-family: 'Righteous-Regular', cursive;
-    font-weight: 800;
+    background: repeating-linear-gradient(
+            transparent 0px,
+            rgba(255,179,71,.03) 1px,
+            transparent 2px
+    );
+
+    opacity: .3;
+    z-index: 999;
 }
 
-h3 {
-    color: rgba(5, 224, 217, 0.76);
-}
-
-a {
-    text-decoration: none;
-}
-
-ul {
-    list-style: none;
-}
-
-
+/* layout (НЕ ТРОГАЕМ) */
 .app-wrapper {
     margin: 0 auto;
     display: grid;
     width: 80%;
+
     grid-template-areas:
-  "h h"
-  "n c";
+        "h h"
+        "n c";
 
     grid-template-rows: 10rem 1fr;
     grid-template-columns: 2fr 10fr;
-    /* grid-gap: 10px; */
-
 }
 
+/* panels */
+.app-wrapper-content,
+.nav {
+    /*background: var(--panel);*/
+    border: 1px solid var(--border);
 
-.app-wrapper-content {
-    grid-area: c;
-    /*background-color: #3498db;*/
-    background: linear-gradient(45deg, #183462, transparent);
-    border-bottom: 2px solid #4682B4;
-    border-radius: 0.7rem;
-    /*!*background: linear-gradient(45deg, #1C1F26, #8E44AD, transparent);*! фиолетовый*/
-    /*background: linear-gradient(45deg, #2D383A, #8A8A8A, transparent); серый*/
-    /*background: linear-gradient(to right, #212529, #1C1F26);*/
+    box-shadow:
+            inset 0 0 20px rgba(255,179,71,.05),
+            0 0 20px rgba(0,0,0,.9);
+
+    padding: 20px;
 }
 
+/* headings */
+h2 {
+    text-align: center;
+    color: var(--amber);
 
-textarea {
-    margin-bottom: 0.5rem;
-    padding: 0.5rem;
-    width: 100%;
-    background-color: #2F343A;
-    border: 2px solid #2F343A;
-    border-left: 2px  solid #4682B4;
-    border-radius: 0.7rem;
-    color: white;
-    outline: none;
-    box-sizing: border-box;
-    resize: none; /* Чтобы пользователь мог менять высоту, но не ширину */
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    font-size: 2.5rem;
+
+    text-shadow: 0 0 10px rgba(255,179,71,.4);
+
+    font-family: 'Orbitron', sans-serif;
 }
 
+h2::before {
+    content: ">> ";
+    color: var(--amber-bright);
+}
 
+/* nav links */
+.item a {
+    display: block;
+    padding: 14px;
+
+    color: #9f8660;
+    text-transform: uppercase;
+
+    border-left: 2px solid transparent;
+    transition: .2s;
+}
+
+.item a:hover {
+    color: var(--amber-bright);
+    background: rgba(255,179,71,.05);
+    border-left: 2px solid var(--amber);
+}
+
+.active {
+    color: var(--amber-bright);
+    background: rgba(255,179,71,.08);
+    border-left: 3px solid var(--amber);
+}
+
+/* buttons */
 button {
-    background: linear-gradient(45deg, #183462, #2D383A);
-    border: 2px solid #4682B4;
-    border-radius: 0.7rem;
-    color: #99a2ab;
-    font-family: "Exo-Italic-VariableFont_wght", sans-serif;
-    font-weight: 600;
-    padding: 0.75rem 1.5rem;
-    cursor: pointer;
-    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-    box-shadow: 0 4px 6px rgba(24, 52, 98, 0.5);
+    background: #101010;
+    color: var(--amber);
+
+    border: 1px solid #4b3a20;
+
+    font-family: 'IBM Plex Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+
+    transition: .2s;
 }
 
-button:hover
- {
-    background: linear-gradient(45deg, #142b51, #1e2526);
-    border-color: #008b8d; /* цвет из заголовка h2 */
-    color: rgb(0, 139, 141);
+button:hover {
+    color: var(--amber-bright);
+    border-color: var(--amber);
+    box-shadow: 0 0 12px rgba(255,179,71,.25);
+}
+
+/* inputs */
+input,
+textarea {
+    background: #0a0a0a;
+    border: 1px solid #40311d;
+
+    color: var(--amber);
+    font-family: 'IBM Plex Mono', monospace;
+
     outline: none;
-    /*box-shadow: 0 5px 5px rgb(0, 139, 141);*/
-    box-shadow: 3px 3px 3px rgb(0, 139, 141);
+    padding: 1rem;
+    width: 100%;
+    height: 1rem;
+    resize: none;
+    letter-spacing: 1px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,.6);
 }
 
-button:active {
-    background: linear-gradient(45deg, #102340, #080a0a);
-    border-color: #4682B4;
-    color: #99a2ab;
-    box-shadow: inset 0 3px 5px rgba(24, 52, 98, 0.7);
+
+input:focus,
+textarea:focus {
+    border-color: var(--amber);
+    box-shadow: 0 0 10px rgba(255,179,71,.15);
 }
+
+/* global links CRT glitch */
+a {
+    color: #9f8660;
+    text-decoration: none;
+    transition: .15s ease;
+
+    position: relative;
+
+    text-shadow:
+            0 0 6px rgba(255,179,71,.15),
+            1px 0 rgba(255,0,0,.15),
+            -1px 0 rgba(0,255,255,.12);
+}
+
+/*a:hover {*/
+/*    color: var(--amber-bright);*/
+
+/*    text-shadow:*/
+/*            1px 0 rgba(255,0,0,.35),*/
+/*            -1px 0 rgba(0,255,255,.25),*/
+/*            0 0 12px rgba(255,179,71,.35);*/
+
+/*    transform: translateX(0.5px);*/
+/*}*/
+
+/*a:hover::after {*/
+/*    content: attr(href);*/
+/*    position: absolute;*/
+/*    left: 0;*/
+/*    top: 0;*/
+
+/*    color: rgba(255,179,71,.25);*/
+/*    clip-path: inset(0 0 50% 0);*/
+
+/*    transform: translateX(1px);*/
+/*    pointer-events: none;*/
+/*}*/
+
+/*a:active {*/
+/*    color: var(--amber);*/
+/*    transform: translateX(0);*/
+/*    text-shadow: 0 0 8px rgba(255,179,71,.25);*/
+/*}*/

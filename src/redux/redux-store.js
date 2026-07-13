@@ -6,6 +6,7 @@ import usersReducer from "./users-reducer";
 import musicReducer from "./music-reducer";
 import newsReducer from "./news-reducer";
 import todoReducer from "./todo-reducer";
+import pomodoroReducer from "./pomodoro-reducer";
 
 
 //* combineReducers(...) - функция из Redux, которая объединяет несколько reducer в один
@@ -17,6 +18,7 @@ const reducers = combineReducers({
 	musicPage: musicReducer,
 	newsPage: newsReducer,
 	todoPage: todoReducer,
+	pomodoroPage: pomodoroReducer,
 })
 const store = createStore(reducers);
 

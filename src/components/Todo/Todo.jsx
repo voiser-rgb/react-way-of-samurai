@@ -7,8 +7,6 @@ const Todo = (props) => {
 	let todos = props.todoPage.todos;
 	let newTodoText = props.todoPage.newTodoText;
 
-	console.log(props.todoPage)
-
 	let todoElement = todos.map((i,index) => (<TodoItem 	key={i.id} id={i.id}
 																 number={index + 1}
 																 text={i.text}

@@ -53,9 +53,11 @@ ol li::before {
 }
 
 .wrapperText {
-    display: inline-flex;
-    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     margin: 0 0 1rem 0;
+    width: 20rem;
 }
 
 .wrapperInfo .subtitle {

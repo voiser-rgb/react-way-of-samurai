@@ -21,7 +21,7 @@ const TodoItem = (props) => {
 			<span>{props.text}</span>
 			<span>{props.completed ? "Finished" : "in progress" }</span>
 			<span className={styles.groupBtn}>
-				<button className={styles.btn} onClick={deleteTask} type="button">Delete</button>
+				<button className={`${styles.btn} ${styles.delete}`} onClick={deleteTask} type="button">Delete</button>
 				<button className={styles.btn} onClick={completeTask} type="button">Finished</button>
 			</span>
 		</li>

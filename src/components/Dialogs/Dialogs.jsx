@@ -20,8 +20,8 @@ const Dialogs = (props) => {
 	}
 
 	const onFormSubmit = (e) => {
-		e.preventDefault();
-		props.onSendMessage();
+			e.preventDefault();
+			props.onSendMessage();
 	}
 
 	return (<div>
@@ -44,8 +44,6 @@ const Dialogs = (props) => {
 					rows="1"
 					placeholder="Write your message...">
 				</textarea>
-
-
 				<div>
 					<button onClick={onFormSubmit}>add</button>
 				</div>

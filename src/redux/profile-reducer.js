@@ -1,5 +1,4 @@
 import {randomId} from "./store";
-import imgLocal from "../img/MotherMiko.png";
 
 const ADD_POST = 'ADD_POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE_TEXT';

@@ -37,3 +37,12 @@
 .btn {
     border-radius: 0 0.7rem 0.7rem 0
 }
+
+.delete {
+    color: var(--danger);
+}
+
+.delete:hover {
+    color: #8c3726;
+    border-color: #8c3726;
+}

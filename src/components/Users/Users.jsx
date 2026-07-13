@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Users.module.css";
-import userPhoto from "../../assets/images/anonymous .png"
+import userPhoto from "../../assets/images/anonymous.png"
 import {NavLink} from "react-router-dom";
 
 const Users = (props) => {
@@ -21,6 +21,8 @@ const Users = (props) => {
 	{/*!test */
 	}
 
+	console.log("totalUsersCount - ", props.totalUsersCount);
+
 	return (<div className={styles.wrapper}>
 		<div className={styles.wrapperPage}>
 
@@ -31,7 +33,7 @@ const Users = (props) => {
 			</>)}
 			{/*!test */}
 			{visiblePages.map((page) => (<span key={page}
-											   className={props.currentPage === page ? styles.selectedPage : ""}
+											   className={currentPage === page ? styles.selectedPage : ""}
 											   onClick={() => {
 												   props.onPageChanged(page)
 											   }}>{page}</span>))}
