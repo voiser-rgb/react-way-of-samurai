@@ -1,7 +1,6 @@
 import React from "react";
 import "./App.css";
 import {Route, Routes} from "react-router-dom";
-import Header from "./components/Header/Header";
 import Settings from "./components/Settings/Settings";
 import Friends from "./components/Friends/Friends";
 import DialogsContainer from "./components/Dialogs/Message/DialogsContainer";
@@ -12,15 +11,15 @@ import NewsContainer from "./components/News/NewsContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import TodoContainer from "./components/Todo/TodoContainer";
 import PomodoroContainer from "./components/Pomodoro/PomodoroContainer";
+import HeaderContainer from "./components/Header/HeaderContainer";
 
 const App = () => {
 	return (<div className="app-wrapper terminal">
-		<Header/>
+		<HeaderContainer/>
 		<NavbarContainer/>
 		<div className="app-wrapper-content">
 			<Routes>
 				<Route path="/profile/:userId?" element={<ProfileContainer/>}/>
-				{/*<Route path="/profile/:userId" element={<ProfileContainer/>}/>*/}
 				<Route path="/dialogs" element={<DialogsContainer/>}/>
 				<Route path="/dialogs/:id" element={<DialogsContainer/>}/>
 				<Route path="/users" element={<UsersContainer/>}/>

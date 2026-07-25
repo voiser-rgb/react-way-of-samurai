@@ -1,44 +1,8 @@
 {
-  "music": {
-    "tool": [
-      {
-        "id": 1,
-        "name": "Tool",
-        "nameSong": "7empest",
-        "album": "10000 Days",
-        "dateRelease": 2006,
-        "img": "https://rocknation.su/upload/images/albums/3233.jpg",
-        "audioRef": "https://rocknation.su/upload/mp3/Tool/2019%20-%20Fear%20Inoculum/09.%207empest.mp3"
-      }
-    ],
-    "warhammer40k": [
-      {
-        "id": 1,
-        "name": "Guillaume David",
-        "nameSong": "Binary Signal",
-        "album": "Mechanicus",
-        "dateRelease": 2020,
-        "img": "/assets/music/warhammer40k/img/adeptusMechanicus.jpg",
-        "audioRef": "/assets/music/warhammer40k/audio/Binary_Signal.mp3"
-      },
-      {
-        "id": 2,
-        "name": "Guillaume David",
-        "nameSong": "Noosphere",
-        "album": "Mechanicus",
-        "dateRelease": 2020,
-        "img": "/assets/music/warhammer40k/img/adeptusMechanicus.jpg",
-        "audioRef": "/assets/music/warhammer40k/audio/Noosphere.mp3"
-      },
-      {
-        "id": 3,
-        "name": "Guillaume David",
-        "nameSong": "Children Of The Omnissiah",
-        "album": "Mechanicus",
-        "dateRelease": 2020,
-        "img": "/assets/music/warhammer40k/img/adeptusMechanicus.jpg",
-        "audioRef": "/assets/music/warhammer40k/audio/Children_Of_The_Omnissiah.mp3"
-      }
-    ]
-  }
+  "usersStatistics": [
+    {
+      "date": "16.07.2026",
+      "totalUsersCountAtDate": 28292
+    }
+  ]
 }

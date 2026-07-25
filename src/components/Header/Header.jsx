@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from "./Header.module.css";
-// import logo from "../../img/solar.png";
 import GalaxyAnimation from "../common/GalaxyAnimation/GalaxyAnimation";
+import {NavLink} from "react-router-dom";
 
-const Header = () => {
+const Header = (props) => {
 	return (<header className={styles.header}>
 		<div className={styles.wrapper}>
 			{/*<span>AlienGalaxy</span>*/}
@@ -11,7 +11,9 @@ const Header = () => {
 			<h1>
 				&gt;&gt; AlienGalaxy
 			</h1>
-			{/*<div><img src={logo} alt="logo"/></div>*/}
+			<div className={styles.auth}>
+				{props.isAuth ? <span className={styles.login}>{`[ ${props.login} ]`}</span>: <NavLink className={styles.authFalse} to="/login">[ login ]</NavLink>}
+			</div>
 		</div>
 	</header>)
 }

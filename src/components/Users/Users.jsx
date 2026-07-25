@@ -10,7 +10,6 @@ const Users = (props) => {
 		pages.push(i)
 	}
 
-	// console.log("Max users: ",  28292, " (16 Jul 2026)")
 
 	async function getUsersStatistics() {
 		try {

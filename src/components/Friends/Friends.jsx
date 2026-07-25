@@ -5,9 +5,9 @@ const Friends = () => {
 		<div>
 		<h2>Friends:</h2>
 			<ul>
-				<li>Pavel</li>
-				<li>Vika</li>
-				<li>Dmitry</li>
+				<li>[ Pavel ]</li>
+				<li>[ Vika ]</li>
+				<li>[ Dmitry ]</li>
 			</ul>
 		</div>);
 }
