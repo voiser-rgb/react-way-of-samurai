@@ -7,7 +7,6 @@ const initialState = {
 	isAuth: false,
 	isFetched: false,
 }
-debugger;
 const authReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case SET_USER_DATA:

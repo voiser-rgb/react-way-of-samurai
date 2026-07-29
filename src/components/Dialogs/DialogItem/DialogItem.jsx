@@ -5,19 +5,20 @@ import userPhoto from "../../../assets/images/anonymous.png";
 
 const setActive = ({isActive}) => isActive ? styles.active : "";
 
-const DialogItem = (dialog) => {
-	const id = dialog.id;
-	const name = dialog.name;
-	const img = dialog.img;
+const DialogItem = ({id, name, img}) => {
+	// const id = dialog.id;
+	// const name = dialog.name;
+	// const img = dialog.img;
 
-	console.log("img: ", img)
+	console.log(img);
 	return (<li id={id} className={styles.item}>
 		<NavLink to={`/dialogs/${id}`} end className={setActive}>
 			{/*<img className={styles.avatar}*/}
 			{/*	 src={img}*/}
 			{/*	 alt="avatar"/>*/}
 			<img className={styles.avatar}
-				 // src={img != null ? img : userPhoto}
+				// src={img != null ? img : userPhoto}
+				 key={img}
 				 src={img || userPhoto}
 				 onError={(e) => {
 					 e.currentTarget.onerror = null;
@@ -26,7 +27,6 @@ const DialogItem = (dialog) => {
 				 alt="avatar"/>
 			<span className={styles.text}>{name}</span>
 		</NavLink>
-
 
 
 	</li>);
