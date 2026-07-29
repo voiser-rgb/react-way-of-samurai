@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Users.module.css";
 import userPhoto from "../../assets/images/anonymous.png"
 import {NavLink} from "react-router-dom";
+import axios from "axios";
 
 const Users = (props) => {
 	const pageCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -10,9 +11,14 @@ const Users = (props) => {
 		pages.push(i)
 	}
 
-
+// TODO:
+//! В будущем вынести статистику:
+//! UsersStatisticsContainer - получение данных
+//! UsersStatisticsModal - отображение
 	async function getUsersStatistics() {
 		try {
+			// json-server --watch db.json --port 3001
+
 			//* IT-KAMASUTRA SERVER
 			const responseSamurai = await fetch("https://social-network.samuraijs.com/api/1.0/users");
 			const data = await responseSamurai.json();
@@ -23,9 +29,7 @@ const Users = (props) => {
 
 
 			const statistics = history.map(({date, totalUsersCountAtDate}) => ({
-				date,
-				newUsersGrowth: data.totalCount - totalUsersCountAtDate,
-				totalAdded: data.totalCount
+				date, newUsersGrowth: data.totalCount - totalUsersCountAtDate, totalAdded: data.totalCount
 			}))
 			statistics.forEach((item) => {
 				console.log(`Рост: +${item.newUsersGrowth}`);
@@ -37,39 +41,35 @@ const Users = (props) => {
 	}
 
 
-	{/*!test */
-	}
-	// вычисляем диапазон отображаемых страниц
+
+	//* вычисляем диапазон отображаемых страниц
 	const portionSize = 10; // показываем только 10 страниц одновременно
 	const {currentPage} = props;
 	const start = Math.max(1, currentPage - 4);
 	const end = Math.min(pageCount, start + portionSize - 1);
 	const visiblePages = pages.slice(start - 1, end);
-	{/*!test */
-	}
 
-	// console.log("totalUsersCount - ", props.totalUsersCount);
+
 
 	return (<div className={styles.wrapper}>
 		<div className={styles.wrapperPage}>
-			{/*!test */}
+
 			{start > 1 && (<>
 				<span onClick={() => props.onPageChanged(1)}>1</span>
 				<span>...</span>
 			</>)}
-			{/*!test */}
+
 			{visiblePages.map((page) => (<span key={page}
 											   className={currentPage === page ? styles.selectedPage : ""}
 											   onClick={() => {
 												   props.onPageChanged(page)
 											   }}>{page}</span>))}
 
-			{/*!test */}
+
 			{end < pageCount && (<>
 				<span>...</span>
 				<span onClick={() => props.onPageChanged(pageCount)}>{pageCount}</span>
 			</>)}
-			{/*!test */}
 			<button className={styles.btn} onClick={getUsersStatistics}>Statistic</button>
 		</div>
 		{props.users.map((user) => <div className={styles.item} key={user.id}>
@@ -81,12 +81,35 @@ const Users = (props) => {
 							 alt="avatar"/>
 					</NavLink>
 				</div>
-				{user.followed ? <button onClick={() => {
-					props.unfollow(user.id)
-				}}>unFollow</button> : <button onClick={() => {
-					props.follow(user.id)
-				}}>Follow</button>}
-				{/*<button>Follow</button>*/}
+				{user.followed ?
+					<button onClick={() => {
+						axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`,{
+							withCredentials: true,
+							headers: {
+								'API-KEY': 'fc1ab77a-68bf-4f18-aa09-76f783abf693'
+							}
+						})
+							.then((response) => {
+								if (response.data.resultCode === 0){
+									props.unfollow(user.id)
+								}
+							})
+						}
+					}>unFollow</button> :
+					<button onClick={() => {
+						axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`, {}, {
+							withCredentials: true,
+							headers: {
+								'API-KEY': 'fc1ab77a-68bf-4f18-aa09-76f783abf693'
+							}
+						})
+							.then((response) => {
+							if (response.data.resultCode === 0){
+								props.follow(user.id)
+							}
+						})
+					}}>Follow</button>
+				}
 			</div>
 			{/*Блок для имени, статуса, страны и города*/}
 			<div className={styles.userInfo}>
