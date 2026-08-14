@@ -89,6 +89,23 @@
     margin: 0 auto;
 }
 
+.userWrapper .btn:disabled {
+    opacity: 0.5;
+    cursor: wait;
+}
+
+.userWrapper .btn:hover:disabled {
+    background: #101010;
+    color: var(--amber);
+
+    border: 1px solid #4b3a20;
+
+    font-family: 'IBM Plex Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    box-shadow: none;
+}
+
 .wrapperPage {
     display: flex;
     padding-left: 1.5rem;

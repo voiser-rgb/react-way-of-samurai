@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Users.module.css";
 import userPhoto from "../../assets/images/anonymous.png"
 import {NavLink} from "react-router-dom";
+import {toggleFollowingProgress} from "../../redux/users-reducer";
 
 const Users = (props) => {
 	const pageCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -9,6 +10,7 @@ const Users = (props) => {
 	for (let i = 1; i <= pageCount; i++) {
 		pages.push(i)
 	}
+
 
 	//* вычисляем диапазон отображаемых страниц
 	const portionSize = 10; // показываем только 10 страниц одновременно
@@ -49,8 +51,18 @@ const Users = (props) => {
 							 alt="avatar"/>
 					</NavLink>
 				</div>
-				{user.followed ? <button onClick={() => { props.unfollow(user.id)}}>unFollow</button>
-					: <button onClick={() => {props.follow(user.id)}}>Follow</button>}
+				{user.followed ?
+					<button className={styles.btn} disabled={props.followingInProgress.some((id) => id === user.id)}
+							onClick={() => {
+						props.unfollowUser(user.id)
+								console.log("followingInProgress: " ,props.followingInProgress, user.id)}
+					}>unFollow</button>
+					: <button className={styles.btn} disabled={props.followingInProgress.some((id) => id === user.id)}
+							  onClick={() => {
+						props.followUser(user.id)
+								  console.log("followingInProgress: " ,props.followingInProgress)}
+					}>Follow</button>
+				}
 			</div>
 			{/*Блок для имени, статуса, страны и города*/}
 			<div className={styles.userInfo}>

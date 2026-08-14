@@ -2,7 +2,7 @@ import React from "react";
 import Users from "./Users";
 import {connect} from "react-redux";
 import {
-	follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching
+	follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching, toggleFollowingProgress
 } from "../../redux/users-reducer";
 import Preloader from "../common/Preloader/Preloader";
 import {usersAPI} from "../../api/api";
@@ -33,22 +33,29 @@ class UsersContainer extends React.Component {
 		})
 	}
 
-	follow = (userId) => {
+	followUser = (userId) => {
+		this.props.toggleFollowingProgress(true, userId);
+		//* HTTP-запрос: подписаться на пользователя
 		usersAPI.follow(userId)
 			.then((data) => {
 				if (data.resultCode === 0){
-					console.log("inside container component follow: ", data);
+					//* После успешного ответа сервера меняем Redux state
 					this.props.follow(userId)
 				}
+				this.props.toggleFollowingProgress(false, userId);
 			})
 	}
 
-	unfollow = (userId) => {
+	unfollowUser = (userId) => {
+		//* HTTP-запрос: отписаться от пользователя
+		this.props.toggleFollowingProgress(true, userId);
 		usersAPI.unfollow(userId)
 			.then((data) => {
 				if (data.resultCode === 0){
+					//* После успешного ответа сервера меняем Redux state
 					this.props.unfollow(userId)
 				}
+				this.props.toggleFollowingProgress(false, userId);
 			})
 	}
 
@@ -73,9 +80,11 @@ class UsersContainer extends React.Component {
 															   currentPage={this.props.currentPage}
 															   onPageChanged={this.onPageChanged}
 															   users={this.props.users}
-															   follow={this.follow}
-															   unfollow={this.unfollow}
-															   getUsersStatistics={this.getUsersStatistics}/>}
+															   followUser={this.followUser}
+															   unfollowUser={this.unfollowUser}
+															   getUsersStatistics={this.getUsersStatistics}
+															   toggleFollowingProgress={this.toggleFollowingProgress}
+															   followingInProgress={this.props.followingInProgress}/>}
 			</div>
 		</>
 	}
@@ -90,6 +99,7 @@ const mapStateToProps = (state) => {
 		totalUsersCount: state.usersPage.totalUsersCount,
 		currentPage: state.usersPage.currentPage,
 		isFetching: state.usersPage.isFetching,
+		followingInProgress: state.usersPage.followingInProgress,
 	}
 }
 //* Возвращаем функции которые отвечают за действие
@@ -104,7 +114,11 @@ const mapStateToProps = (state) => {
 // 	}
 // }
 
+//* mapStateToProps:
+//* Redux state → props ( передаёт данные из Redux state в props. )
 
+//* mapDispatchToProps:
+//* action creators → dispatch → Redux ( action creators — передаёт действия в props. )
 
 //* Возвращаем функции которые отвечают за действие
 const MyUsersContainer = connect(mapStateToProps, {
@@ -114,5 +128,6 @@ const MyUsersContainer = connect(mapStateToProps, {
 	setCurrentPage,
 	setTotalUsersCount,
 	toggleIsFetching,
+	toggleFollowingProgress
 })(UsersContainer);
 export default MyUsersContainer;
