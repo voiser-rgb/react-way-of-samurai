@@ -89,12 +89,12 @@
     margin: 0 auto;
 }
 
-.userWrapper .btn:disabled {
+.btn:disabled {
     opacity: 0.5;
     cursor: wait;
 }
 
-.userWrapper .btn:hover:disabled {
+.btn:hover:disabled {
     background: #101010;
     color: var(--amber);
 

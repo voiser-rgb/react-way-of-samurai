@@ -2,7 +2,6 @@ import React from "react";
 import styles from "./Users.module.css";
 import userPhoto from "../../assets/images/anonymous.png"
 import {NavLink} from "react-router-dom";
-import {toggleFollowingProgress} from "../../redux/users-reducer";
 
 const Users = (props) => {
 	const pageCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -40,7 +39,7 @@ const Users = (props) => {
 				<span>...</span>
 				<span onClick={() => props.onPageChanged(pageCount)}>{pageCount}</span>
 			</>)}
-			<button className={styles.btn} onClick={props.getUsersStatistics}>Statistic</button>
+			<button className={styles.btn} disabled={props.isStatisticsFetching} onClick={props.getUsersStatistics}>Statistic</button>
 		</div>
 		{props.users.map((user) => <div className={styles.item} key={user.id}>
 			{/*Блок для Аватара и для кнопки Followed*/}

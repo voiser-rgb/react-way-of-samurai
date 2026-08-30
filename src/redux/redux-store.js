@@ -1,4 +1,4 @@
-import {combineReducers, createStore} from "redux";
+import {applyMiddleware, combineReducers, createStore} from "redux";
 import profileReducer from "./profile-reducer";
 import dialogsReducer from "./dialogs-reducer";
 import sidebarReducer from "./sidebar-reducer";
@@ -8,6 +8,7 @@ import newsReducer from "./news-reducer";
 import todoReducer from "./todo-reducer";
 import pomodoroReducer from "./pomodoro-reducer";
 import authReducer from "./auth-reducer";
+import { thunk as thunkMiddleware } from "redux-thunk";
 
 
 //* combineReducers(...) - функция из Redux, которая объединяет несколько reducer в один
@@ -22,7 +23,7 @@ const reducers = combineReducers({
 	pomodoroPage: pomodoroReducer,
 	auth: authReducer,
 })
-const store = createStore(reducers);
+const store = createStore(reducers, applyMiddleware(thunkMiddleware));
 
 window.store = store;
 

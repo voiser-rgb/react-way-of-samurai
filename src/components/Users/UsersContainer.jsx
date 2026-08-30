@@ -2,74 +2,39 @@ import React from "react";
 import Users from "./Users";
 import {connect} from "react-redux";
 import {
-	follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching, toggleFollowingProgress
+	follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching, toggleFollowingProgress,
+	getUsersThunkCreator, followThunkCreator, unfollowThunkCreator, getUsersStatisticsThunkCreator
 } from "../../redux/users-reducer";
 import Preloader from "../common/Preloader/Preloader";
-import {usersAPI} from "../../api/api";
 
-
+//! Посмотри у тебя работает валидация страниц функционал, а отображение текущий страницы нет
+//! Посмотри именование Thunk как лучше назвать
 
 class UsersContainer extends React.Component {
 	componentDidMount() {
 		console.log('Компонент смонтирован в DOM');
-		this.props.toggleIsFetching(true);
-		usersAPI.getUsers(this.props.currentPage, this.props.pageSize)
-			.then((data) => {
-			this.props.toggleIsFetching(false);
-			this.props.setUsers(data.items);
-			this.props.setTotalUsersCount(data.totalCount); //* берем с сервера кол-во users и устанавливаем у свойства totalCount новое значение
-		})
+		this.props.getUsersThunkCreator(this.props.currentPage, this.props.pageSize);
 	}
 
 
 	onPageChanged = (pageNumber) => {
-		this.props.toggleIsFetching(true);
-		this.props.setCurrentPage(pageNumber);
-
-		usersAPI.getUsers(pageNumber, this.props.pageSize)
-			.then((data) => {
-			this.props.toggleIsFetching(false);
-			this.props.setUsers(data.items);
-		})
+		this.props.getUsersThunkCreator(pageNumber, this.props.pageSize);
 	}
 
 	followUser = (userId) => {
-		this.props.toggleFollowingProgress(true, userId);
-		//* HTTP-запрос: подписаться на пользователя
-		usersAPI.follow(userId)
-			.then((data) => {
-				if (data.resultCode === 0){
-					//* После успешного ответа сервера меняем Redux state
-					this.props.follow(userId)
-				}
-				this.props.toggleFollowingProgress(false, userId);
-			})
+		this.props.followThunkCreator(userId);
 	}
 
 	unfollowUser = (userId) => {
-		//* HTTP-запрос: отписаться от пользователя
-		this.props.toggleFollowingProgress(true, userId);
-		usersAPI.unfollow(userId)
-			.then((data) => {
-				if (data.resultCode === 0){
-					//* После успешного ответа сервера меняем Redux state
-					this.props.unfollow(userId)
-				}
-				this.props.toggleFollowingProgress(false, userId);
-			})
+		this.props.unfollowThunkCreator(userId);
 	}
 
 	getUsersStatistics = async () => {
-		try {
-			const statistics =  await usersAPI.getUsersStatistics()
-
-			statistics.forEach((item) => {
-				console.log(`Рост: +${item.newUsersGrowth}`);
-				console.log(`Всего пользователей добавлено за все время: ${item.totalAdded}`);
-			})
-		} catch(error) {
-			console.error("Ошибка при получении статистики:", error);
-		}
+		const statistics = await this.props.getUsersStatisticsThunkCreator();
+		statistics.forEach((item) => {
+			console.log(`Рост: +${item.newUsersGrowth}`);
+			console.log(`Всего пользователей добавлено за все время: ${item.totalAdded}`);
+		});
 	}
 
 	render() {
@@ -83,8 +48,8 @@ class UsersContainer extends React.Component {
 															   followUser={this.followUser}
 															   unfollowUser={this.unfollowUser}
 															   getUsersStatistics={this.getUsersStatistics}
-															   toggleFollowingProgress={this.toggleFollowingProgress}
-															   followingInProgress={this.props.followingInProgress}/>}
+															   followingInProgress={this.props.followingInProgress}
+															   isStatisticsFetching={this.props.isStatisticsFetching}/>}
 			</div>
 		</>
 	}
@@ -100,6 +65,8 @@ const mapStateToProps = (state) => {
 		currentPage: state.usersPage.currentPage,
 		isFetching: state.usersPage.isFetching,
 		followingInProgress: state.usersPage.followingInProgress,
+		usersStatistics: state.usersPage.usersStatistics,
+		isStatisticsFetching: state.usersPage.isStatisticsFetching,
 	}
 }
 //* Возвращаем функции которые отвечают за действие
@@ -122,12 +89,9 @@ const mapStateToProps = (state) => {
 
 //* Возвращаем функции которые отвечают за действие
 const MyUsersContainer = connect(mapStateToProps, {
-	follow,
-	unfollow,
-	setUsers,
-	setCurrentPage,
-	setTotalUsersCount,
-	toggleIsFetching,
-	toggleFollowingProgress
+	getUsersThunkCreator,
+	followThunkCreator,
+	unfollowThunkCreator,
+	getUsersStatisticsThunkCreator
 })(UsersContainer);
 export default MyUsersContainer;
