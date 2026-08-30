@@ -33,6 +33,13 @@ export const usersAPI = {
 		return history.map(({date, totalUsersCountAtDate}) => ({
 			date, newUsersGrowth: data.totalCount - totalUsersCountAtDate, totalAdded: data.totalCount
 		}));
-	}
+	},
 }
 
+
+export const authAPI = {
+	getAuthUser(){
+		return instance.get('auth/me')
+			.then((response) => response.data)
+	}
+}
