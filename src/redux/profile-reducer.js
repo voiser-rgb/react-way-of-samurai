@@ -1,4 +1,5 @@
 import {randomId} from "./store";
+import {profileAPI} from "../api/api";
 
 const ADD_POST = 'ADD_POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE_TEXT';
@@ -59,5 +60,15 @@ export const addPostActionCreator = () => ({type: ADD_POST});
 export const updateNewPostActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text});
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile});
 
+
+//* thunk
+export const getUserProfileThunk = (id) => {
+	return (dispatch) => {
+		profileAPI.getUserProfile(id)
+			.then((data) => {
+				dispatch(setUserProfile(data))
+			})
+	}
+}
 
 export default profileReducer;
