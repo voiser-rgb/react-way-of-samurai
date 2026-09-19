@@ -1,74 +1,346 @@
-ol {
-    list-style: none; /* Убираем стандартную нумерацию */
-    counter-reset: item;
-}
+/*ol {*/
+/*    list-style: none; !* Убираем стандартную нумерацию *!*/
+/*    counter-reset: item;*/
+/*}*/
 
-ol li {
-    counter-increment: item;
-    position: relative;
-    padding-left: 25px; /* Отступ для текста */
-}
+/*ol li {*/
+/*    counter-increment: item;*/
+/*    position: relative;*/
+/*    padding-left: 25px; !* Отступ для текста *!*/
+/*}*/
 
-ol li::before {
-    content: counter(item) ".";
-    position: absolute;
-    left: 0;  /* Положение номера */
-    top: 0;
-    width: 20px;
-    text-align: right;
-}
+/*ol li::before {*/
+/*    content: counter(item) ".";*/
+/*    position: absolute;*/
+/*    left: 0;  !* Положение номера *!*/
+/*    top: 0;*/
+/*    width: 20px;*/
+/*    text-align: right;*/
+/*}*/
+
+
+/*.music {*/
+/*    width: 80%;*/
+/*    padding-right: 0.75rem;*/
+/*    padding-left: 0.75rem;*/
+/*    margin-right: auto;*/
+/*    margin-left: auto;*/
+/*}*/
+
+/*.music__item {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    width: 100%;*/
+/*}*/
+
+/*.music__item .wrapper {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*}*/
+
+
+/*.music__item .img {*/
+/*    margin-right: 1.5rem;*/
+/*    width: 10rem;*/
+/*    border-radius: 1rem;*/
+/*    !*overflow: hidden;*!*/
+/*}*/
+
+/*.wrapperInfo {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    align-items: center;*/
+/*}*/
+
+/*.wrapperText {*/
+/*    display: flex;*/
+/*    flex-wrap: wrap;*/
+/*    justify-content: center;*/
+/*    margin: 0 0 1rem 0;*/
+/*    width: 20rem;*/
+/*}*/
+
+/*.wrapperInfo .subtitle {*/
+/*    margin: 0 1rem 0 0;*/
+/*    font-size: 2rem;*/
+/*    font-weight: 700;*/
+/*}*/
+
+/*.wrapperInfo .text {*/
+/*    margin: 0;*/
+/*}*/
 
 
 .music {
-    width: 80%;
-    padding-right: 0.75rem;
-    padding-left: 0.75rem;
-    margin-right: auto;
-    margin-left: auto;
+    width: 100%;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+.title {
+    margin: 0 0 2rem;
+
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 2.2rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+
+    color: #ff9d00;
+
+    text-shadow:
+            0 0 5px rgba(255, 157, 0, 0.8),
+            0 0 15px rgba(255, 157, 0, 0.35);
+}
+
+
+/* =========================
+   TRACK CARD
+   ========================= */
+
+.music__item {
+    position: relative;
+
+    display: grid;
+    grid-template-columns: 165px minmax(0, 1fr);
+    column-gap: 2rem;
+
+    width: 100%;
+    max-width: 1100px;
+
+    margin: 0 auto 1.5rem;
+    padding: 1.5rem;
+
+    box-sizing: border-box;
+
+    background: #100b06;
+
+    border: 1px solid #8a5108;
+    border-radius: 12px;
+
+    box-shadow:
+            inset 0 0 25px rgba(255, 157, 0, 0.06),
+            0 0 12px rgba(255, 157, 0, 0.08);
+
+    overflow: hidden;
+}
+
+
+/* CRT scanlines */
+
+.music__item::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    background: repeating-linear-gradient(
+            to bottom,
+            transparent 0,
+            transparent 2px,
+            rgba(255, 157, 0, 0.025) 3px
+    );
+}
+
+
+/* =========================
+   TRACK NUMBER
+   ========================= */
+
+.music__item::before {
+    content: counter(track, upper-roman);
+
+    position: absolute;
+    top: 1.5rem;
+    left: 1.2rem;
+
+    z-index: 2;
+
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.85rem;
+    font-weight: 700;
+
+    color: #ff9d00;
+    letter-spacing: 2px;
+}
+
+
+/* counter */
+
+.music {
+    counter-reset: track;
 }
 
 .music__item {
-    display: flex;
-    align-items: center;
-    width: 100%;
-}
-
-.music__item .wrapper {
-    display: flex;
-    flex-direction: column;
+    counter-increment: track;
 }
 
 
-.music__item .img {
-    margin-right: 1.5rem;
-    width: 10rem;
-    border-radius: 1rem;
-    /*overflow: hidden;*/
-}
+/* =========================
+   LEFT PART
+   ========================= */
 
-.wrapperInfo {
+.music__item > figcaption {
+    position: relative;
+    z-index: 1;
+
     display: flex;
     flex-direction: column;
     align-items: center;
-}
 
-.wrapperText {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 0 0 1rem 0;
-    width: 20rem;
-}
+    padding-left: 1.2rem;
+    box-sizing: border-box;
 
-.wrapperInfo .subtitle {
-    margin: 0 1rem 0 0;
-    font-size: 2rem;
-    font-weight: 700;
-}
-
-.wrapperInfo .text {
     margin: 0;
 }
 
 
+/* album image */
 
+.img {
+    display: block;
+
+    width: 120px;
+    height: auto;
+
+    object-fit: cover;
+
+    border: 1px solid #8a5108;
+    border-radius: 4px;
+
+    box-shadow:
+            0 0 10px rgba(255, 157, 0, 0.08);
+}
+
+
+/* album / year */
+
+.music__item > figcaption > p {
+    margin: 0.75rem 0 0;
+
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 600;
+
+    color: #ff9d00;
+
+    letter-spacing: 1px;
+    text-align: center;
+
+    text-shadow:
+            0 0 5px rgba(255, 157, 0, 0.35);
+}
+
+
+/* =========================
+   RIGHT PART
+   ========================= */
+
+.music__item > li {
+    position: relative;
+    z-index: 1;
+
+    min-width: 0;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+
+.wrapperInfo {
+    display: flex;
+    flex-direction: column;
+    /*justify-content: center;*/
+
+    height: 100%;
+    min-width: 0;
+
+    margin: 0;
+    padding: 0;
+}
+
+
+/* artist + track */
+
+.wrapperText {
+    margin-bottom: 1rem;
+}
+
+
+.subtitle {
+    margin: 0;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 700;
+
+    /*color: #ffe5b0;*/
+
+    /*letter-spacing: 2px;*/
+
+    text-shadow:
+            0 0 5px rgba(255, 157, 0, 0.7),
+            0 0 12px rgba(255, 157, 0, 0.25);
+}
+
+
+.text {
+    margin: 0.4rem 0 0;
+
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    color: #d6a85f;
+
+    letter-spacing: 1px;
+}
+
+.info {
+    font-size: 1rem;
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 700px) {
+
+    .music {
+        padding: 1rem;
+    }
+
+    .title {
+        font-size: 1.6rem;
+    }
+
+    .music__item {
+        grid-template-columns: 1fr;
+
+        gap: 1.5rem;
+
+        padding: 1.25rem;
+    }
+
+    .music__item > figcaption {
+        align-items: center;
+    }
+
+    .img {
+        width: 120px;
+        height: 148px;
+    }
+
+    .subtitle {
+        font-size: 1.35rem;
+        text-align: center;
+    }
+
+    .text {
+        text-align: center;
+    }
+}

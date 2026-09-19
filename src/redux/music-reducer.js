@@ -29,7 +29,7 @@ const initialState = {
 			{id: 1, name: "Guillaume David", nameSong: "Caestus_Metalican",album: "Mechanicus",dateRelease: 2020, img: imgAl, audioRef: CaestusMetalican},
 			{id: 2, name: "Guillaume David", nameSong: "Dance_Of_the_Cryptek",album: "Mechanicus",dateRelease: 2020, img: imgAl, audioRef: DanceOftheCryptek},
 			{id: 3, name: "Guillaume David", nameSong: "Children_of_the_Omnissiah",album: "Mechanicus",dateRelease: 2020, img: imgAl, audioRef: ChildrenOfTheOmnissiah},
-			{id: 3, name: "Guillaume David", nameSong: "Noosphere",album: "Mechanicus",dateRelease: 2020, img: imgAl, audioRef: Noosphere},
+			{id: 4, name: "Guillaume David", nameSong: "Noosphere",album: "Mechanicus",dateRelease: 2020, img: imgAl, audioRef: Noosphere},
 		]}
 
 }
