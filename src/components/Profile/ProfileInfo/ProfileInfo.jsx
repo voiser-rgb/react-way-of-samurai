@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from "./ProfileInfo.module.css";
 import img from "../../../img/TheCarinaNebula.jpg";
+import defaultAvatar from "../../../assets/images/anonymous.png";
 import Preloader from "../../common/Preloader/Preloader";
 
 const ProfileInfo = (props) => {
@@ -24,7 +25,7 @@ const ProfileInfo = (props) => {
 		</div>
 		<article className={styles.userCard}>
 			<figure className={styles.wrapper}>
-				<img className={styles.avatar} src={props.profile.photos.large} alt="img"/>
+				<img className={styles.avatar} src={props.profile.photos.large != null ? props.profile.photos.large : defaultAvatar} alt="img"/>
 				<div className={styles.wrapperStatus}>
 					<span className={`${styles.statusDot} ${setActive}`}></span>
 					<p className={styles.status}>{props.profile.lookingForAJob ? "I'm  looking for a job" : "I'm not looking for a job"}</p>

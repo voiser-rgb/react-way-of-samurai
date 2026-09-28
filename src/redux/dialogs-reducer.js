@@ -1,5 +1,5 @@
 import {randomId} from "./store";
-import myShibaAvaAn from "../assets/images/myShibaAvaAn.png";
+import сhaosSpaceMarineMiko from "../assets/images/сhaosSpaceMarineMiko.png";
 //* Actions type
 const SEND_MESSAGE = 'SEND_MESSAGE';
 const UPDATE_NEW_MESSAGE_BODY = 'UPDATE_NEW_MESSAGE_BODY';
@@ -10,7 +10,7 @@ const initialState = {
 	dialogs: [{
 		id: 1,
 		name: "Andrey",
-		img: myShibaAvaAn,
+		img: сhaosSpaceMarineMiko,
 	}, {id: 2, name: "Vika", img: "https://shibann.ru/males/blin_akimo/2.jpg",}, {
 		id: 3,
 		name: "Pavel",
