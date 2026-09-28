@@ -23,11 +23,9 @@ const authReducer = (state = initialState, action) => {
 }
 
 export const setAuthUserData = (id, email, login) => ({type: SET_USER_DATA, data: { id, email, login }});
-
-
 export const getAuthUserThunk = () => {
 	return (dispatch) => {
-		authAPI.getAuthUser()
+		authAPI.me()
 			.then((response) => {
 				if (response.resultCode === 0) {
 					let {id, email, login } = response.data;
@@ -36,6 +34,5 @@ export const getAuthUserThunk = () => {
 			})
 	}
 }
-
 
 export default authReducer;

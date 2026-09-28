@@ -1,8 +1,10 @@
+import avatar from ".././assets/images/сhaosSpaceMarineMiko.png"
+
 const initialState = {
 		friends: [{
 			id: 1,
 			name: "Andrey",
-			avatar: "https://sun1-96.userapi.com/s/v1/if2/7MEhze88smBtxG_IOXZicdqgObdIPfm-bL2iXGPKfbcDgrBWOaAgO_Qhp9--ohvIw5bvMMvQc3hwYZaP8X7_6yPP.jpg?quality=96&crop=109,108,861,861&as=50x50,100x100,200x200,400x400&ava=1&u=hgeXSJsZdmm4p9M178oWMXTcBhe1smedlgJatVDLvk4&cs=100x100"
+			avatar: avatar,
 		}, {
 			id: 2,
 			name: "Carl",
