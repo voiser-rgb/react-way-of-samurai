@@ -12,6 +12,7 @@ import ProfileContainer from "./components/Profile/ProfileContainer";
 import TodoContainer from "./components/Todo/TodoContainer";
 import PomodoroContainer from "./components/Pomodoro/PomodoroContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
+import Login from "./components/Login/Login";
 
 const App = () => {
 	return (<div className="app-wrapper terminal">
@@ -23,6 +24,8 @@ const App = () => {
 				<Route path="/dialogs" element={<DialogsContainer/>}/>
 				<Route path="/dialogs/:id" element={<DialogsContainer/>}/>
 				<Route path="/users" element={<UsersContainer/>}/>
+				<Route path="/login" element={<Login/>}/>
+
 				<Route path="/news" element={<NewsContainer/>}/>
 				<Route path="/music" element={<MusicContainer/>}/>
 				<Route path="/todo" element={<TodoContainer/>}/>
